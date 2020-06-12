@@ -14,37 +14,52 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- Bootstrap Core CSS -->
+
+        <!-- MetisMenu CSS -->
+        <link href="css/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Timeline CSS -->
+        <link href="css/timeline.css" rel="stylesheet">
+
+
+        <!-- Morris Charts CSS -->
+        <link href="css/morris.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-<!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-  <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.html">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.html">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div>
     <div class="sidebar-brand-text mx-3">Boardgame</div>
-  </a>
+    </a>
 
-  <!-- Nav Item - Dashboard -->
-  <li class="nav-item active">
+   <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
     <a class="nav-link" href="admin.html">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Trang chủ</span></a>
-  </li>
+    </li>
 
-  <!-- Heading -->
+    <!-- Heading -->
 
-  <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
       <i class="fas fa-fw fa-cog"></i>
-      <span>Quản lý người dùng</span>
+      <span>Quản lý sản phẩm</span>
     </a>
     <div id="collapseTwo" class="collapse" >
       <div class="bg-white py-2 collapse-inner rounded">
@@ -52,10 +67,10 @@
         <a class="collapse-item" href="customerlist.html">Danh sách khách hàng</a>
       </div>
     </div>
-  </li>
+    </li>
 
-  <!-- Nav Item - Utilities Collapse Menu -->
-  <li class="nav-item">
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
       <i class="fas fa-fw fa-wrench"></i>
       <span>Quản lý sản phẩm</span>
@@ -67,15 +82,15 @@
         <a class="collapse-item" href="productadd.html">Thêm sản phẩm</a>
       </div>
     </div>
-  </li>
+    </li>
 
-  <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
     <a class="nav-link collapsed" href="orders.html"  >
       <i class="fas fa-fw fa-folder"></i>
       <span>Quản lý đơn hàng</span>
     </a>
-  </li>
+    </li>
 
   <!-- Nav Item - Charts -->
   <li class="nav-item">
@@ -152,183 +167,165 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Trang chủ</h1>
-          </div>
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Sản phẩm</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">113</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Quản lý sản phẩm</h1>
             </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Doanh thu</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">10,100,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Đơn hàng</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">103</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Người dùng</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">213</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
-
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Thống kê sản phẩm</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Bảng thông báo</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" >
-                    </a>
-                    
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-              <!-- Project Card Example -->
-              
-
-              <!-- Color System -->
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- Illustrations -->
-              
-
-              <!-- Approach -->
-              
-
-            </div>
-          </div>
-
+            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.container-fluid -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="textHeading">Thêm sản phẩm</span>
+            </div>
+            <div class="panel-body">
+            <?php
+                        if (isset($insertUser)){
+                            echo $insertUser;
+                        }
+            ?>   
+                <form  method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
+                    <table style="width: 100%;">
 
-      </div>
-      <!-- End of Main Content -->
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Tên sản phẩm:  </label>
+                        </td>
+                        <td>
+                            <input type="text" name="tenSanPham" placeholder="Nhập tên sản phẩm..." class="inputAddProduct" required autofocus>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="tabLabel">
+                          <label class="labelAddProduct">Danh mục sản phẩm: </label>
+                      </td>
+                      <td>
+                          <select class="inputAddProduct" name="danhMucSanPham" required>
+                              <option value="0">----Chọn danh mục----</option>
+                              <?php 
+                                  $vaiTro = $user->show_usertype();
+                                  if ($vaiTro){
+                                      while ($resultRole = $vaiTro->fetch_assoc()) {
+                                      
+                              ?>
+                              <option value="<?php echo $resultRole['maVaiTro']; ?>"><?php echo $resultRole['tenVaiTro']; ?></option>
+                              <?php 
+                                  }
+                              }
+                              ?>
+                          </select> 
+                      </td>                   
+                  </tr>
 
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Số lượng: </label>
+                        </td>
+                        <td>
+                            <input type="text" name="soLuongSanPham" placeholder="Nhập số lượng..." class="inputAddProduct" required autofocus>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Miêu tả sản phẩm: </label>
+                        </td>
+                        <td>
+                          <textarea name="mieuTaSanPham" rows="2" cols="25" placeholder="Nhập miêu tả sản phẩm..." class="inputAddProduct" style="height: 80px;" required></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Giá sản phẩm: </label>
+                        </td>
+                        <td>
+                            <input type="text" name="giaSanPham" placeholder="Nhập giá sản phẩm..." class="inputAddProduct" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <td class="tabLabel">
+                          <label class="labelAddProduct">Hình ảnh sản phẩm: </label>
+                      </td>
+                      <td>
+                          <input name="image" type="file" accept="image/*" onchange="loadFile(event)" required>
+                          <img id="output" style="width: 20%;" />
+                      </td>
+                  </tr>
+
+                     </table>
+                     <input type="submit" name="submit" value="Thêm" class="btn btn-success" style="margin: 10px;">
+                </form>  
+             </div>  
+        </div>
+        <!-- /.row -->
+              <!-- /.col-lg-6 -->
+            
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/metisMenu.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="js/dataTables/jquery.dataTables.min.js"></script>
+<script src="js/dataTables/dataTables.bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/startmin.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+$(document).ready(function() {
+    $('#dataTables-example').DataTable({
+            responsive: true
+    });
+});
+</script>
+<script type="text/javascript">
+function validationForm(){
+    var maVaiTro=document.formUser.maVaiTro.value; 
+    var matKhau=document.formUser.matKhau.value;  
+    var matKhau2=document.formUser.matKhau2.value;
+
+    if (matKhau == matKhau2){
+        if (maVaiTro == '0'){
+            alert("Chưa chọn loại tài khoản!");
+            return false;
+        }else{
+            return true;
+        }
+        
+    }else{
+        alert("Mật khẩu không giống nhau! Mời nhập lại!");
+        return false;
+    }
+}
+
+</script>
 <!-- Footer -->
 <!-- <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -387,6 +384,3 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 </html>
-
-
-      

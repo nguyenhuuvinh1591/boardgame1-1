@@ -167,144 +167,177 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div id="page-wrapper">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-12">
-                      <h1 class="page-header">Sản phẩm</h1>
-                  </div>
-                  <!-- /.col-lg-12 -->
-              </div>
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                      <span class="textHeading">DANH SÁCH SẢN PHẨM</span>
-                  </div>
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Quản lý người dùng</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="textHeading">Thêm khách hàng</span>
+            </div>
+            <div class="panel-body">
+            <?php
+                        if (isset($insertUser)){
+                            echo $insertUser;
+                        }
+            ?>   
+                <form  method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
+                    <table style="width: 100%;">
 
-                  <div class="panel-body">   
-                      <input type="text" name="productName" placeholder="Nhập tên sản phẩm..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
-                      <input type="submit" name="submit" value="Tìm kiếm" class="btn btn-default" > 
-                      <a href="productadd.html"><button type="button" class="btn btn-success" style="float: right;">Thêm sản phẩm</button></a>
-                      <p></p>
-                              <div class="table-responsive" style="margin-top: 2%">
-                                  <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                      <thead>
-                                          <tr>
-                                              <th>Mã sản phẩm</th>
-                                              <th>Tên sản phẩm</th>
-                                              <th>Tên danh mục</th>
-                                              <th>Số lượng</th>
-                                              <th>Giá</th>
-                                              <th>Miêu tả sản phẩm</th>
-                                              <th>Trạng thái</th>
-                                              <th>Ảnh sản phẩm</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                        
-                                          <tr class="odd gradeX">
-                                              <td>ma</td>
-                                              <td>ten</td>
-                                              <td>tendanhmuc</td>
-                                              <td>soluong</td>
-                                              <td>gia</td>
-                                              <td>mieuta</td>
-                                              <td>trangthai</td>
-                                              <td><img src="uploads/" width='80'> </td>
-                                              <td>
-                                                  <a href="productedit.html" ><button type="button" class="btn btn-info">Sửa</button></a>
-                                                  <a href="?hideid=" onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này không?')"><button type="button" class="btn btn-warning " >Ẩn</button></a>
-                                              </td>
-                                          </tr>
-                                          
-                                      </tbody>
-                                      
-                                  </table>
-                                  <div class="phanTrang">
-                                          
-                                      </div>
-                              </div>
-                              <!-- /.table-responsive -->
-                  </div>
-              </div>
-              <!-- /.row -->
-                    <!-- /.col-lg-6 -->
-                  
-                              <!-- /.table-responsive -->
-                          </div>
-                          <!-- /.panel-body -->
-                      </div>
-                      <!-- /.panel -->
-                  </div>
-                  <!-- /.col-lg-6 -->
-              </div>
-              <!-- /.row -->
-          </div>
-          <!-- /.container-fluid -->
-      </div>
-      <!-- /#page-wrapper -->
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Họ: </label>
+                        </td>
+                        <td>
+                            <input type="text" name="hoNguoiQuanTri" placeholder="Nhập họ..." class="inputAddProduct" required autofocus>
+                        </td>
+                    </tr>
 
-  </div>
-  <!-- /#wrapper -->
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Tên: </label>
+                        </td>
+                        <td>
+                            <input type="text" name="tenNguoiQuanTri" placeholder="Nhập tên..." class="inputAddProduct" required autofocus>
+                        </td>
+                    </tr>
 
-  <!-- jQuery -->
-  <script src="../js/jquery.min.js"></script>
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Gmail: </label>
+                        </td>
+                        <td>
+                            <input type="email" name="thuDienTuQT" placeholder="Nhập gmail..." class="inputAddProduct" required>
+                        </td>
+                    </tr>
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="../js/bootstrap.min.js"></script>
+                    <tr>
+                      <td class="tabLabel">
+                          <label class="labelAddProduct">Số điện thoại: </label>
+                      </td>
+                      <td>
+                          <input type="text" name="soDienThoai" placeholder="Nhập số điện thoại..." class="inputAddProduct" required>
+                      </td>
+                  </tr>
+                   
+                  <tr>
+                    <td class="tabLabel">
+                        <label class="labelAddProduct">Địa chỉ: </label>
+                    </td>
+                    <td>
+                        <input type="text" name="diaChi" placeholder="Nhập địa chỉ..." class="inputAddProduct" required>
+                    </td>
+                </tr>
 
-  <!-- Metis Menu Plugin JavaScript -->
-  <script src="../js/metisMenu.min.js"></script>
+                <tr>
+                  <td class="tabLabel">
+                      <label class="labelAddProduct">Địa chỉ giao hàng: </label>
+                  </td>
+                  <td>
+                      <input type="text" name="diaChiGiaoHang" placeholder="Nhập địa chỉ giao hàng..." class="inputAddProduct" required>
+                  </td>
+              </tr>
 
-  <!-- DataTables JavaScript -->
-  <script src="../js/dataTables/jquery.dataTables.min.js"></script>
-  <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Tên đăng nhập: </label>
+                        </td>
+                        <td>
+                            <input type="text" name="tenDangNhap" placeholder="Nhập tên đăng nhập..." class="inputAddProduct" required>
+                        </td>
+                    </tr>
 
-  <!-- Custom Theme JavaScript -->
-  <script src="../js/startmin.js"></script>
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Mật khẩu: </label>
+                        </td>
+                        <td>
+                            <input type="password" name="matKhau" placeholder="Nhập mật khẩu..." class="inputAddProduct" required>
+                        </td>
+                    </tr>
 
-  <style type="text/css">
-      .phanTrang a{
-          text-decoration: none;
-          cursor: pointer;
-          color: black;
-          float: left;
-          padding: 5px 15px;
-          border: 1px solid #999499;
-          margin: 0px 2px 5px;
-      }
+                    <tr>
+                        <td class="tabLabel">
+                            <label class="labelAddProduct">Nhập lại mật khẩu: </label>
+                        </td>
+                        <td>
+                            <input type="password" name="matKhau2" placeholder="Nhập lại mật khẩu..." class="inputAddProduct" required>
+                        </td>
+                    </tr>
+                     </table>
+                     <input type="submit" name="submit" value="Thêm" class="btn btn-success" style="margin: 10px;">
+                </form>  
+             </div>  
+        </div>
+        <!-- /.row -->
+              <!-- /.col-lg-6 -->
+            
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
 
-      .phanTrang a:hover{
-          background-color: grey;
-          transition: 500ms;
-      }
-  </style>
-  <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-  <script>
-      $(document).ready(function() {
-          $('#dataTables-example').DataTable({
-                  responsive: true
-          });
-      });
-  </script>
-  <script language="javascript" type="text/javascript"> 
+</div>
+<!-- /#wrapper -->
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<!-- jQuery -->
+<script src="../js/jquery.min.js"></script>
 
-      function popitup(url) { //Popup cửa sổ
-          newwindow=window.open(url,'name','height=580,width=700');
-          if (window.focus) {
-              newwindow.focus()
-              }
-          return false;
-      }
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
 
-  </script>
-        <!-- End Page Content -->
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../js/metisMenu.min.js"></script>
 
+<!-- DataTables JavaScript -->
+<script src="../js/dataTables/jquery.dataTables.min.js"></script>
+<script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
 
-        <!-- /.container-fluid -->
+<!-- Custom Theme JavaScript -->
+<script src="../js/startmin.js"></script>
 
-      </div>
-      <!-- End of Main Content -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+$(document).ready(function() {
+    $('#dataTables-example').DataTable({
+            responsive: true
+    });
+});
+</script>
+<script type="text/javascript">
+function validationForm(){
+    var maVaiTro=document.formUser.maVaiTro.value; 
+    var matKhau=document.formUser.matKhau.value;  
+    var matKhau2=document.formUser.matKhau2.value;
 
+    if (matKhau == matKhau2){
+        if (maVaiTro == '0'){
+            alert("Chưa chọn loại tài khoản!");
+            return false;
+        }else{
+            return true;
+        }
+        
+    }else{
+        alert("Mật khẩu không giống nhau! Mời nhập lại!");
+        return false;
+    }
+}
+
+</script>
 <!-- Footer -->
 <!-- <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -363,6 +396,3 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 </html>
-
-
-      
