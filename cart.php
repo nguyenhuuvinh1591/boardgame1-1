@@ -1,5 +1,5 @@
 <?php
-    include "admin/inc/header.php";
+    include "inc/header.php";
 ?>
 
     <!-- Start Cart  -->
@@ -244,5 +244,5 @@
     <!-- End Instagram Feed  -->
 
 <?php
-    include "admin/inc/footer.php";
+    include "inc/footer.php";
 ?>

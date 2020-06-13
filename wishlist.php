@@ -1,5 +1,5 @@
 <?php
-    include "admin/inc/header.php";
+    include "inc/header.php";
 ?>
     <!-- Start Wishlist  -->
     <div class="wishlist-box-main">
@@ -187,5 +187,5 @@
     </div>
     <!-- End Instagram Feed  -->
 <?php
-    include "admin/inc/footer.php";
+    include "inc/footer.php";
 ?>

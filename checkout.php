@@ -1,5 +1,5 @@
 <?php
-    include "admin/inc/header.php";
+    include "inc/header.php";
 ?>
     <!-- Start Cart  -->
     <div class="cart-box-main">
@@ -353,5 +353,5 @@
 
 
     <?php
-    include "admin/inc/footer.php";
+    include "inc/footer.php";
 ?>
