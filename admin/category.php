@@ -1,6 +1,16 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+    include_once '../classes/category.php';
+?>
+<?php
+    $cat = new category();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $tenLoaiSanPham = $_POST['tenLoaiSanPham'];
+    $insertCat = $cat->insertCategory($tenLoaiSanPham);
+    }
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -13,13 +23,18 @@
                   <!-- /.col-lg-12 -->
               </div>
               <div class="panel panel-default">
-                  <div class="panel-body">   
-                     <form action="category.php" method="POST"> 
+                  <div class="panel-body"> 
+                     <form action="category.php" method="post"> 
                           <p style="text-transform: uppercase;font-weight: bold;">Danh mục sản phẩm</p>
-                          
-                          <input type="text" name="tenLoai" placeholder="Nhập tên danh mục..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
-                          <input type="submit" name="submit" value="Thêm" class="btn btn-success" > 
+                          <input type="text" name="tenLoaiSanPham" placeholder="Nhập tên danh mục..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
+                          <input type="submit" name="submit" value="Thêm" class="btn btn-success" >
                       </form>
+                      <?php
+                      if(isset($insertCat))
+                      {
+                          echo $insertCat;
+                      }
+                      ?>  
                           <!-- List danh mục-->
                               <div class="table-responsive" style="margin-top: 2%">
                                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -30,20 +45,35 @@
                                           </tr>
                                       </thead>
                                       <tbody>
+                                      <?php
+                                            $showcat = $cat->showCategory();
+                                            if(isset($showcat))
+                                            {
+                                                $i = 0;
+                                                while($result = $showcat->fetch_assoc())
+                                                {
+                                                    $i++;
+                                          ?>
                                           <tr>
-                                              <td>stt</td>                                                 
-                                              <td>tendanhmuc</td>  
+                                              <td><?php echo $i; ?></td>                                                 
+                                              <td><?php echo $result['tenLoaiSanPham']; ?></td>  
                                               <td>
                                                  
                                                   <a href="categoryedit.php?catid=" onclick="return popitup"><button type="button" class="btn btn-info" >Sửa</button></a>
                                                   <a href="?deleteid=" onclick="return confirm('Bạn có chắc muốn xóa không?')"><button type="button" class="btn btn-danger" >Xóa</button></a>
                                               </td>
                                           </tr>
+                                          <?php
+                                                }
+                                            }
+                                          ?>
+                                          
+                                          
 
                                       </tbody>
                                   </table>
                               </div>
-                              <!-- /.table-responsive -->
+                              <!-- /.table-responsive --> 
                   </div>
               </div>
               <!-- /.row -->

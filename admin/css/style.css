@@ -24,3 +24,13 @@ td.tabLabel{
 
 }
 
+.errors{
+    font-size: 18px;
+    color: red;
+  }
+  .success
+  {
+    font-size: 18px;
+    color: green;
+  }
+
