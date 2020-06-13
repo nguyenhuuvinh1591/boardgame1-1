@@ -1,5 +1,5 @@
 <?php
-  include '../inc/header.php';
+  include 'inc/header.php';
 ?>
         <!-- End of Topbar -->
 
@@ -123,5 +123,5 @@
       <!-- End of Footer -->
 
       <?php
-      include '../inc/footer.php'
+      include 'inc/footer.php'
     ?>

@@ -1,3 +1,7 @@
+<?php
+  include '../lib/session.php';
+  Session::checkSession();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +71,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Chưa</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo Session::get('tenNguoiQuanTri')?></span>
                 <i class="fa fa-user"></i>
               </a>
               <!-- Dropdown - User Information -->
@@ -77,6 +81,11 @@
                   Thông tin cá nhân
                 </a>
                 <div class="dropdown-divider"></div>
+                <?php
+                  if(isset($_GET['action']) && $_GET['action']=='logout'){
+                    Session::destroy();
+                  }
+                ?>
                 <a class="dropdown-item" href="?action=logout">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Thoát

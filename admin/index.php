@@ -1,3 +1,15 @@
+<?php
+	include '../classes/adminlogin.php';
+?>
+<?php
+	$class = new adminlogin();
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$tenDangNhap = $_POST['tenDangNhap'];
+		$matKhau = md5($_POST['matKhau']);
+
+		$login_check = $class->loginAdmin($tenDangNhap,$matKhau);
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,13 +48,13 @@
 						Admin
 					</span>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="adminUser" placeholder="Tên đăng nhập">
+						<input class="input100" type="text" name="tenDangNhap" placeholder="Tên đăng nhập">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
 
 					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="adminPass" placeholder="Mật khẩu">
+						<input class="input100" type="password" name="matKhau" placeholder="Mật khẩu">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
@@ -51,7 +63,16 @@
 						<button class="login100-form-btn">
 							Đăng nhập
 						</button>
+			
 					</div>
+					<br>
+					<span style="color: red;" id="khoangcach"><?php
+
+						   if(isset($login_check))
+						   {
+							   echo $login_check;
+						   }
+					?></span>
 				</form>
 			</div>
 		</div>

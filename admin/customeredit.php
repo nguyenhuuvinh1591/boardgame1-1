@@ -1,5 +1,5 @@
 <?php
-  include '../inc/header.php';
+  include 'inc/header.php';
 ?>
         <!-- End of Topbar -->
 
@@ -14,7 +14,7 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <span class="textHeading">Sửa thông tin quản trị viên</span>
+                        <span class="textHeading">Sửa thông tin khách hàng</span>
                     </div>
                     <div class="panel-body">
                         <form action="" method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
@@ -196,5 +196,5 @@
       <!-- End of Footer -->
 
       <?php
-      include '../inc/footer.php'
+      include 'inc/footer.php'
     ?>

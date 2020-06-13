@@ -1,5 +1,5 @@
 <?php
-  include '../inc/header.php';
+  include 'inc/header.php';
 ?>
         <!-- End of Topbar -->
 
@@ -126,7 +126,7 @@
 <script src="js/dataTables/dataTables.bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="../js/startmin.js"></script>
+<script src="js/startmin.js"></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
@@ -168,5 +168,5 @@ function validationForm(){
       <!-- End of Footer -->
 
       <?php
-      include '../inc/footer.php'
+      include 'inc/footer.php'
     ?>

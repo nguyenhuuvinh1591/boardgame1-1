@@ -16,30 +16,31 @@
             $this->fm = new Format();
         }
 
-        public function loginAdmin($adminUser,$adminPass)
+        public function loginAdmin($tenDangNhap,$matKhau)
         {
-            $adminUser = $this->fm->validation($adminUser);
-            $adminPass = $this->fm->validation($adminPass);    
-            $adminUser = mysqli_real_escape_string($this->db->link, $adminUser);
-            $adminPass = mysqli_real_escape_string($this->db->link, $adminPass);
+            $tenDangNhap = $this->fm->validation($tenDangNhap);
+            $matKhau = $this->fm->validation($matKhau);
 
-            if(empty($adminUser) || empty($adminPass))
+            $tenDangNhap = mysqli_real_escape_string($this->db->link, $tenDangNhap);
+            $matKhau = mysqli_real_escape_string($this->db->link, $matKhau);
+
+            if(empty($tenDangNhap) || empty($matKhau))
             {
                 $alert = "Tên tài khoản và mật khẩu không được để trống";
                 return $alert;
             }
             else
             {
-                $query = "SELECT * FROM admin WHERE adminUser = '$adminUser' AND adminPass = '$adminPass' LIMIT 1";
+                $query = "SELECT * FROM quantri WHERE tenDangNhap = '$tenDangNhap' AND matKhau = '$matKhau' LIMIT 1";
                 $result = $this->db->select($query);
 
                 if($result)
                 {
                     $value = $result->fetch_assoc();
                     Session::set('adminlogin',true); //phiên đăng nhập có tên là adminlogin
-                    Session::set('adminId',$value['adminId']);
-                    Session::set('adminUser',$value['adminUser']);
-                    Session::set('adminName',$value['adminName']);
+
+                    Session::set('tenDangNhap',$value['tenDangNhap']);
+                    Session::set('tenNguoiQuanTri',$value['tenNguoiQuanTri']);
                     header('Location:admin.php');
 
                 }
