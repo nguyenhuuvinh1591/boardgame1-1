@@ -1,12 +1,3 @@
-<?php
-    include '../classes/adminlogin.php';
-    $class = new adminlogin();
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $adminUser = $_POST['adminUser'];
-		$adminPass = md5($_POST['adminPass']);
-        $logincheck = $class->loginAdmin($adminUser,$adminPass);
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,13 +52,6 @@
 							Đăng nhập
 						</button>
 					</div>
-					<span><?php
-					if(isset($logincheck))
-					{
-						echo $logincheck;
-					}
-                    ?>
-                    </span>
 				</form>
 			</div>
 		</div>

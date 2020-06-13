@@ -1,3 +1,12 @@
+<?php
+    include '../classes/adminlogin.php';
+    $class = new adminlogin();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $adminUser = $_POST['adminUser'];
+		$adminPass = md5($_POST['adminPass']);
+        $logincheck = $class->loginAdmin($adminUser,$adminPass);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +40,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form action="index.php" method="post"  class="login100-form validate-form">
+				<form action="admin.php" method="post"  class="login100-form validate-form">
 					<span class="login100-form-title p-b-33">
 						Admin
 					</span>
@@ -52,6 +61,13 @@
 							Đăng nhập
 						</button>
 					</div>
+					<span><?php
+					if(isset($logincheck))
+					{
+						echo $logincheck;
+					}
+                    ?>
+                    </span>
 				</form>
 			</div>
 		</div>
