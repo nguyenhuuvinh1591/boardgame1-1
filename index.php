@@ -1,8 +1,32 @@
 <?php
     include "inc/header.php";
 ?>
+<!-- Start inf   -->
+<div class="row">
+    <div class="col-lg-4">
+        <div class="ship_policy">
+            <h4>Giao hàng toàn quốc</h4>
+            <span>Hỗ trợ 63 tỉnh thành trên toàn quốc
+            </span>
+            <a target="_blank" rel="nofollow" href="https://boardgame.vn/ns79/chinh-sach-van-chuyen">Xem thêm &gt;</a>
+            </div>
+            </div>
+            <div class="col-lg-4">
+        <div class="payment_policy">
+            <h4>Thanh toán dễ dàng</h4>
+            <span>Chuyển khoản ngân hàng hoặc<br> thanh toán khi nhận hàng</span></div>
+            </div>
+            <div class="col-lg-4">
+        <div class="group_policy">
+            <h4>Ưu đãi mua nhóm</h4>
+            <span>Dành cho đối tác Nhà phân phối, cafe board game, trường học Liên hệ Mr Tùng (0934433995)
+            </span>
 
-<!-- Start Categories  -->
+</div>
+</div>
+</div>
+<!-- end inf -->
+<!-- Start Categories  
 <div class="categories-shop">
     <div class="container">
         <div class="row">
@@ -39,7 +63,7 @@
         </div>
     </div>
 </div>
-<!-- End Categories -->
+ End Categories -->
 
 <!-- Start Products  -->
 <div class="products-box">
@@ -71,7 +95,7 @@
                         <div class="type-lb">
                             <p class="sale">Sale</p>
                         </div>
-                        <img src="images/img-pro-01.jpg" class="img-fluid" alt="Image">
+                        <img src="images/maSoiOneWeek.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -82,8 +106,8 @@
                         </div>
                     </div>
                     <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $7.79</h5>
+                        <h4>Ma Sói One Week Ultimate Werewolf (US)</h4>
+                        <h5> $47.61</h5>
                     </div>
                 </div>
             </div>
@@ -94,7 +118,7 @@
                         <div class="type-lb">
                             <p class="new">New</p>
                         </div>
-                        <img src="images/img-pro-02.jpg" class="img-fluid" alt="Image">
+                        <img src="images/banGa.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -105,8 +129,8 @@
                         </div>
                     </div>
                     <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $9.79</h5>
+                        <h4>Bắn Gà Là Tạch</h4>
+                        <h5> $19.39</h5>
                     </div>
                 </div>
             </div>
@@ -115,9 +139,9 @@
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
-                            <p class="sale">Sale</p>
+                            <p class="new">New</p>
                         </div>
-                        <img src="images/img-pro-03.jpg" class="img-fluid" alt="Image">
+                        <img src="images/lopHocMN.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -128,8 +152,8 @@
                         </div>
                     </div>
                     <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $10.79</h5>
+                        <h4>Lớp Học Mật Ngữ-Cuộc đua sao chổi</h4>
+                        <h5> $18.96</h5>
                     </div>
                 </div>
             </div>
@@ -140,7 +164,7 @@
                         <div class="type-lb">
                             <p class="sale">Sale</p>
                         </div>
-                        <img src="images/img-pro-04.jpg" class="img-fluid" alt="Image">
+                        <img src="images/uno.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -151,8 +175,8 @@
                         </div>
                     </div>
                     <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $15.79</h5>
+                        <h4>Bài UNO (Mattel) (US)</h4>
+                        <h5> $5.99</h5>
                     </div>
                 </div>
             </div>
