@@ -1,6 +1,20 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+    include_once '../classes/category.php';
+?>
+<?php
+    include '../classes/product.php';
+?>
+<?php
+    $pd = new product();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
+    $insertProduct = $pd->insertProduct($_POST,$_FILES);
+    }
+?>
+
+
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -34,8 +48,20 @@
                           <label class="labelAddProduct">Danh mục sản phẩm: </label>
                       </td>
                       <td>
-                          <select class="inputAddProduct" name="danhMucSanPham" required>
-                              <option value="0">----Chọn danh mục----</option>
+                          <select class="inputAddProduct" name="danhMucSanPham" required> 
+                              <?php
+                                $cat = new category();
+                                $catlist = $cat->showCategory();
+                                if($catlist)
+                                {
+                                    while($result = $catlist->fetch_assoc())
+                                    {
+                              ?>          
+                                    <option name="loaiSanPham" value="<?php echo $result['maLoaiSanPham']?>"><?php echo $result['tenLoaiSanPham'] ?></option>
+                                    <?php
+                                    }
+                                }
+                              ?>
                           </select> 
                       </td>                   
                   </tr>

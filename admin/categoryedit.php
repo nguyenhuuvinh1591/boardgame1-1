@@ -1,6 +1,28 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+    include_once '../classes/category.php';
+?>
+<?php
+
+    $cat = new category();
+    if(!isset($_GET['maLoaiSanPham']) || $_GET['maLoaiSanPham'] == NULL)
+    {
+        echo "<script>window.location = 'category.php'</script>"; //categorylist.php
+    }
+    else
+    {
+        $id = $_GET['maLoaiSanPham'];
+    }
+?>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $tenLoaiSanPham = $_POST['tenLoaiSanPham'];
+        $updateCat = $cat->updateCategory($tenLoaiSanPham,$id);
+        }
+?>
+
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -8,7 +30,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Quản lý người dùng</h1>
+                        <h1 class="page-header">Quản lý sản phẩm</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -17,22 +39,39 @@
                         <span class="textHeading">Sửa danh mục sản phẩm</span>
                     </div>
                     <div class="panel-body">
-                        <form action="" method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
+                        <?php
+                            $getCatName = $cat->getCatbyID($id);
+                            if($getCatName)
+                            {
+                                while($result = $getCatName-> fetch_assoc())
+                                {
+
+                        ?>
+                        <form action="" method="POST" enctype="multipart/form-data" name="formUser"> <!--enctype để có thể thêm hình ảnh -->
                             <table style="width: 100%;">
                             <tr>
                                 <td class="tabLabel">
                                     <label class="labelAddProduct">Danh mục sản phẩm:  </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="tenNguoiQuanTri" value="" class="inputAddProduct" autofocus>
+                                    <input type="text" name="tenLoaiSanPham" value="<?php echo $result['tenLoaiSanPham']?>" class="inputAddProduct" autofocus>
                                 </td>
                             </tr>
-
-                            
-                            
                              </table>
                              <input type="submit" name="submit" value="Sửa" class="btn btn-success" style="margin: 10px;">
-                        </form>  
+                        </form> 
+                        <?php
+                                                        
+                                    if(isset($updateCat))
+                                    {
+                                        echo $updateCat;
+                                    }
+
+                                }
+                             }
+                        
+                        ?>
+ 
                      </div>  
                 </div>
                 <!-- /.row -->

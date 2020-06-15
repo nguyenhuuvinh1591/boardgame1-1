@@ -3,7 +3,7 @@
     include '../helpers/format.php';
 ?>
 <?php
-    class category
+    class product
     {
         private $db;
         private $fm;
@@ -14,12 +14,25 @@
             $this->fm = new Format();
         }
 
-        public function insertCategory($tenLoaiSanPham)
+        public function insertProduct($data,$files)
         {
-            $tenLoaiSanPham = $this->fm->validation($tenLoaiSanPham);
 
-            $tenLoaiSanPham = mysqli_real_escape_string($this->db->link, $tenLoaiSanPham);
-            
+            $tenSanPham = mysqli_real_escape_string($this->db->link, $data['tenSanPham']);
+            $danhMucSanPham = mysqli_real_escape_string($this->db->link, $data['danhMucSanPham']);
+            $soLuongSanPham = mysqli_real_escape_string($this->db->link, $data['soLuongSanPham']);
+            $mieuTaSanPham = mysqli_real_escape_string($this->db->link, $data['mieuTaSanPham']);
+            $giaSanPham = mysqli_real_escape_string($this->db->link, $data['giaSanPham']);
+            //kiểm tra hình ảnh
+            $permited = array('jpg', 'jpeg', 'png', 'gif');
+            $file_name = $_FILES['image']['name'];
+            $file_size = $_FILES['image']['size'];
+            $file_temp = $_FILES['image']['tmp_name'];
+
+            $div = explode('.',$file_name);
+            $file_ext = strtolower(end($div));
+            $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
+            $uploaded_image = "uploads/".$unique_image;
+
 
             if(empty($tenLoaiSanPham))
             {
@@ -44,21 +57,21 @@
             }
         }
 
-        public function showCategory()
+        public function showProduct()
         {
-            $query = "SELECT * FROM loaisanpham order by maLoaiSanPham desc"; //sắp xếp giảm dần
+            $query = "SELECT * FROM sanpham order by maSanPham desc"; //sắp xếp giảm dần
             $result = $this->db->select($query);
             return $result;   
         }
 
-        public function getCatbyID($id)
+        public function getProductbyID($id)
         {
             $query = "SELECT * FROM loaisanpham WHERE maLoaiSanPham = '$id'";
             $result = $this->db->select($query);
             return $result;
         }
 
-        public function updateCategory($tenLoaiSanPham,$id)
+        public function updateProduct($tenLoaiSanPham,$id)
         {
             $tenLoaiSanPham = $this->fm->validation($tenLoaiSanPham);
 
@@ -88,7 +101,7 @@
             }
         }
 
-        public function deleteCategory($id)
+        public function deleteProduct($id)
         {
             $query = "DELETE FROM loaisanpham WHERE maLoaiSanPham = '$id'";
             $result = $this->db->delete($query);
