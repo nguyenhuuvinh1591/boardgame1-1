@@ -1,6 +1,8 @@
 <?php
     include "inc/header.php";
 ?>
+
+
     <!-- Start Shop Page  -->
     <div class="shop-box-inner">
         <div class="container">
@@ -15,58 +17,42 @@
                         </div>
                         <div class="filter-sidebar-left">
                             <div class="title-left">
-                                <h3>Thể loại</h3>
+                                <h3>Categories</h3>
                             </div>
                             <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
                                 <div class="list-group-collapse sub-men">
-                                    <a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">BoardGame gia đình</a>
-                                    <div class="collapse" id="sub-men1" data-parent="#list-group-men">
+                                    <a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="true" aria-controls="sub-men1">Clothing <small class="text-muted">(100)</small>
+								</a>
+                                    <div class="collapse show" id="sub-men1" data-parent="#list-group-men">
                                         <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">Cờ Tỷ Phú Monopoly Classic Game</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Lớp Học Mật Ngữ - Cuộc đua sao chổi (Mới 2020)</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Splendor Việt</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Uno Flip (US) </a>
+                                            <a href="#" class="list-group-item list-group-item-action active">T-Shirts <small class="text-muted">(50)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Polo T-Shirts <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Round Neck T-Shirts <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">V Neck T-Shirts <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Hooded T-Shirts <small class="text-muted">(20)</small></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="list-group-collapse sub-men">
-                                    <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">BoardGame mới</a>
+                                    <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Footwear 
+								<small class="text-muted">(50)</small>
+								</a>
                                     <div class="collapse" id="sub-men2" data-parent="#list-group-men">
-                                    <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">Bắn Gà Là Tạch (PUBG the Board Game)</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Tam Quốc Sát - Quốc Chiến - Yokagames</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Ma Sói One Week Ultimate Werewolf (US)</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Ma Sói Ultimate Werewolf - Deluxe Edition (US)</a>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action">Sports Shoes <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Sneakers <small class="text-muted">(20)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Formal Shoes <small class="text-muted">(20)</small></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="list-group-collapse sub-men">
-                                    <a class="list-group-item list-group-item-action" href="#sub-men3" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">BoarGame trẻ em</a>
-                                    <div class="collapse" id="sub-men3" data-parent="#list-group-men">
-                                    <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">Đường Đua Tài Chính</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Bài UNO (Mattel) (US)</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Cờ Caro Tổ Ong Beehive XO</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Lớp Học Mật Ngữ - Siêu Thú Ngân Hà</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-group-collapse sub-men">
-                                    <a class="list-group-item list-group-item-action" href="#sub-men4" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Phụ kiện BoardGame</a>
-                                    <div class="collapse" id="sub-men4" data-parent="#list-group-men">
-                                    <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">Sleeves Bài Tỷ Phú - Stone Age - Catan 5.9x9.2cm</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Xúc Xắc Xốp 6 Mặt Cỡ To</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Túi Rút 7 x 9 cm</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Tiểu Thuyết Bí Ẩn Làng Ma Sói - Lâu Đài Bá Tước Jean</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a href="#" class="list-group-item list-group-item-action"> Men  <small class="text-muted">(150) </small></a>
+                                <a href="#" class="list-group-item list-group-item-action">Accessories <small class="text-muted">(11)</small></a>
+                                <a href="#" class="list-group-item list-group-item-action">Bags <small class="text-muted">(22)</small></a>
                             </div>
                         </div>
                         <div class="filter-price-left">
                             <div class="title-left">
-                                <h3>Giá bán</h3>
+                                <h3>Price</h3>
                             </div>
                             <div class="price-box-slider">
                                 <div id="slider-range"></div>
@@ -75,7 +61,77 @@
                                     <button class="btn hvr-hover" type="submit">Filter</button>
                                 </p>
                             </div>
-                        </div>               
+                        </div>
+                        <div class="filter-brand-left">
+                            <div class="title-left">
+                                <h3>Brand</h3>
+                            </div>
+                            <div class="brand-box">
+                                <ul>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios1" value="Yes" type="radio">
+                                            <label for="Radios1"> Supreme </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios2" value="No" type="radio">
+                                            <label for="Radios2"> A Bathing Ape </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios3" value="declater" type="radio">
+                                            <label for="Radios3"> The Hundreds </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios4" value="declater" type="radio">
+                                            <label for="Radios4"> Alife </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios5" value="declater" type="radio">
+                                            <label for="Radios5"> Neighborhood </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios6" value="declater" type="radio">
+                                            <label for="Radios6"> CLOT </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios7" value="declater" type="radio">
+                                            <label for="Radios7"> Acapulco Gold </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios8" value="declater" type="radio">
+                                            <label for="Radios8"> UNDFTD </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios9" value="declater" type="radio">
+                                            <label for="Radios9"> Mighty Healthy </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio-danger">
+                                            <input name="survey" id="Radios10" value="declater" type="radio">
+                                            <label for="Radios10"> Fiberops </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
@@ -418,6 +474,92 @@
     </div>
     <!-- End Shop Page -->
 
+    <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-01.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-02.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-03.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-04.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-05.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-06.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-07.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-08.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-09.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-05.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
 
 <?php
     include "inc/footer.php";
