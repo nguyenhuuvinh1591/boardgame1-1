@@ -1,3 +1,91 @@
+<!-- Start Instagram Feed  -->
+<div class="instagram-box">
+    <div class="main-instagram owl-carousel owl-theme">
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_1.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_2.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_3.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_4.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_5.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_6.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_7.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_8.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="images/insta_sp_9.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ins-inner-box">
+                <img src="insta_sp_10.jpg" alt="" />
+                <div class="hov-in">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Instagram Feed  -->
+
+<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 <!-- Start Footer  -->
 <footer>
     <div class="footer-main">
@@ -5,8 +93,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-widget">
-                        <h4>About ThewayShop</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <h4>Giới Thiệu</h4>
+                        <p>Board Game Station là mô hình cà phê board game đông vui nhất tại TP.HCM. Phục vụ mọi người từ học sinh, sinh viên đến những người đã đi làm, miễn là có đam mê hoặc muốn khám phá về board game. Giá vé game cho 1 người là 59k VNĐ (bao gồm một phần nước), là bạn có thể thoải mái lựa chọn hết tất cả các game tại cửa hàng để cùng giải trí với bạn bè, gia đình!
                             </p>
                         <ul>
                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
@@ -21,29 +109,27 @@
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-link">
-                        <h4>Information</h4>
+                        <h4>THÔNG TIN</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Về Chúng tôi</a></li>
+                            <li><a href="#">Dịch vụ khách hàng </a></li>
+                            <li><a href="#">Điều khoản và điều kiện</a></li>
+                            <li><a href="#">Thông tin giao hàng</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-link-contact">
-                        <h4>Contact Us</h4>
+                        <h4>Liên hệ với chúng tôi</h4>
                         <ul>
                             <li>
-                                <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                <p><i class="fas fa-map-marker-alt"></i>Địa chỉ: 273 An Dương Vương, Quận 5 <br>TP Hồ Chí Minh</p>
                             </li>
                             <li>
-                                <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+84 974086701</a></p>
                             </li>
                             <li>
-                                <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">VLT2000@gmail.com</a></p>
                             </li>
                         </ul>
                     </div>

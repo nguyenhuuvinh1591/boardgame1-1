@@ -1,31 +1,6 @@
 <?php
-    include "inc/header.php";
+    include_once "inc/header.php";
 ?>
-<!-- Start inf   -->
-<div class="row">
-    <div class="col-lg-4">
-        <div class="ship_policy">
-            <h4>Giao hàng toàn quốc</h4>
-            <span>Hỗ trợ 63 tỉnh thành trên toàn quốc
-            </span>
-            <a target="_blank" rel="nofollow" href="https://boardgame.vn/ns79/chinh-sach-van-chuyen">Xem thêm &gt;</a>
-            </div>
-            </div>
-            <div class="col-lg-4">
-        <div class="payment_policy">
-            <h4>Thanh toán dễ dàng</h4>
-            <span>Chuyển khoản ngân hàng hoặc<br> thanh toán khi nhận hàng</span></div>
-            </div>
-            <div class="col-lg-4">
-        <div class="group_policy">
-            <h4>Ưu đãi mua nhóm</h4>
-            <span>Dành cho đối tác Nhà phân phối, cafe board game, trường học Liên hệ Mr Tùng (0934433995)
-            </span>
-
-</div>
-</div>
-</div>
-<!-- end inf -->
 <!-- Start Categories  
 <div class="categories-shop">
     <div class="container">
@@ -71,8 +46,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-all text-center">
-                    <h1>Featured Products</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    <h1>Sản phẩm nổi bật</h1>
                 </div>
             </div>
         </div>
@@ -170,7 +144,7 @@
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
+                            </ul> 
                             <a class="cart" href="#">Add to Cart</a>
                         </div>
                     </div>
@@ -191,8 +165,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-all text-center">
-                    <h1>latest blog</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    <h1>Những Game Mới Nhất</h1>
+                    <p>Hãy khám phá ngay nào</p>
                 </div>
             </div>
         </div>
@@ -200,12 +174,12 @@
             <div class="col-md-6 col-lg-4 col-xl-4">
                 <div class="blog-box">
                     <div class="blog-img">
-                        <img class="img-fluid" src="images/blog-img.jpg" alt="" />
+                        <img class="img-fluid" src="images/deadofwinter.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="title-blog">
-                            <h3>Fusce in augue non nisi fringilla</h3>
-                            <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
+                            <h3>Dead of Winter - The Long Night (US)</h3>
+                            <p>Dead of Winter - The Long Night là bản mở rộng độc lập của Dead of Winter: A Crossroads Game, một tựa game hợp tác sinh tồn chủ đề xác sống vô vùng thú vị. </p>
                         </div>
                         <ul class="option-blog">
                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
@@ -218,12 +192,12 @@
             <div class="col-md-6 col-lg-4 col-xl-4">
                 <div class="blog-box">
                     <div class="blog-img">
-                        <img class="img-fluid" src="images/blog-img-01.jpg" alt="" />
+                        <img class="img-fluid" src="images/maSoiOneWeek.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="title-blog">
-                            <h3>Fusce in augue non nisi fringilla</h3>
-                            <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
+                            <h3>Ma Sói One Week Ultimate Werewolf (US)</h3>
+                            <p>One Week Ultimate Werewolf lấy lối chơi của One Night và nâng cấp nó lại thành một nút thắt, với sự căng thẳng ngày càng tăng khi bạn dấn thân vào những căn phòng đặc biệt của Lâu đài Ludwig. Mỗi phòng đều cung cấp một sức mạnh đặc biệt và những sức mạnh đó là chìa khóa để tìm ra Ma Sói.</p>
                         </div>
                         <ul class="option-blog">
                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
@@ -236,12 +210,13 @@
             <div class="col-md-6 col-lg-4 col-xl-4">
                 <div class="blog-box">
                     <div class="blog-img">
-                        <img class="img-fluid" src="images/blog-img-02.jpg" alt="" />
+                        <img class="img-fluid" src="images/banGa.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="title-blog">
-                            <h3>Fusce in augue non nisi fringilla</h3>
-                            <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
+                            <h3>Bắn Gà Là Tạch (PUBG the Board Game)</h3>
+                            <p>Bắn Gà Là Tạch là board game sinh tồn đầu tiên do 100% người Việt sáng tạo.
+                                    Một nhà khoa học điên chế tạo thành công một loại virus nguy hiểm chết người. Bất kỳ ai dính phải sẽ biến thành GÀ. Lúc đầu chỉ một nhóm nhỏ bị nhiễm, dần dần chúng nhân giống nhiều khiến đến hơn 80% dân số thế giới đã trở thành gà. Những con gà này mang trong mình đầy virus, và chúng sẽ phát tán ra không khí khi bị giết, vì thế nên mới gọi là BẮN GÀ LÀ TẠCH cả lũ.</p>
                         </div>
                         <ul class="option-blog">
                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
@@ -255,115 +230,6 @@
     </div>
 </div>
 <!-- End Blog  -->
-
-
-<!-- Start Instagram Feed  -->
-<div class="instagram-box">
-    <div class="main-instagram owl-carousel owl-theme">
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-01.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-02.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-03.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-04.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-05.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-06.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-07.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-08.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-09.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-05.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Instagram Feed  -->
-
-<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-
-<!-- ALL JS FILES -->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- ALL PLUGINS -->
-<script src="js/jquery.superslides.min.js"></script>
-<script src="js/bootstrap-select.js"></script>
-<script src="js/inewsticker.js"></script>
-<script src="js/bootsnav.js."></script>
-<script src="js/images-loded.min.js"></script>
-<script src="js/isotope.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/baguetteBox.min.js"></script>
-<script src="js/form-validator.min.js"></script>
-<script src="js/contact-form-script.js"></script>
-<script src="js/custom.js"></script>
-
-
 
 <?php
     include "inc/footer.php";

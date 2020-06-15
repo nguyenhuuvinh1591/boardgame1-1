@@ -26,7 +26,7 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <!-- <link rel="stylesheet" href="css/custom.css"> -->
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -109,48 +109,48 @@
                                 <li>
                                     <div class="row">
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Top</h6>
+                                            <h6 class="title">BoardGame gia đình</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Jackets</a></li>
-                                                    <li><a href="shop.php">Shirts</a></li>
-                                                    <li><a href="shop.php">Sweaters & Cardigans</a></li>
-                                                    <li><a href="shop.php">T-shirts</a></li>
+                                                    <li><a href="shop.php">Cờ Tỷ Phú Monopoly Classic Game (US)</a></li>
+                                                    <li><a href="shop.php">Lớp Học Mật Ngữ - Cuộc đua sao chổi (Mới 2020)</a></li>
+                                                    <li><a href="shop.php">Splendor Việt</a></li>
+                                                    <li><a href="shop.php">Uno Flip (US)</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <!-- end col-3 -->
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Bottom</h6>
+                                            <h6 class="title">BoardGame mới</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Swimwear</a></li>
-                                                    <li><a href="shop.php">Skirts</a></li>
-                                                    <li><a href="shop.php">Jeans</a></li>
-                                                    <li><a href="shop.php">Trousers</a></li>
+                                                    <li><a href="shop.php">Bắn Gà Là Tạch (PUBG the Board Game)</a></li>
+                                                    <li><a href="shop.php">Tam Quốc Sát - Quốc Chiến - Yokagames</a></li>
+                                                    <li><a href="shop.php">Ma Sói One Week Ultimate Werewolf (US)</a></li>
+                                                    <li><a href="shop.php">Ma Sói Ultimate Werewolf - Deluxe Edition (US)</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <!-- end col-3 -->
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Clothing</h6>
+                                            <h6 class="title">BoarGame trẻ em</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Top Wear</a></li>
-                                                    <li><a href="shop.php">Party wear</a></li>
-                                                    <li><a href="shop.php">Bottom Wear</a></li>
-                                                    <li><a href="shop.php">Indian Wear</a></li>
+                                                    <li><a href="shop.php">Đường Đua Tài Chính</a></li>
+                                                    <li><a href="shop.php">Bài UNO (Mattel) (US)</a></li>
+                                                    <li><a href="shop.php">Cờ Caro Tổ Ong Beehive XO</a></li>
+                                                    <li><a href="shop.php">Lớp Học Mật Ngữ - Siêu Thú Ngân Hà</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Accessories</h6>
+                                            <h6 class="title">Phụ kiện BoardGame</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Bags</a></li>
-                                                    <li><a href="shop.php">Sunglasses</a></li>
-                                                    <li><a href="shop.php">Fragrances</a></li>
-                                                    <li><a href="shop.php">Wallets</a></li>
+                                                    <li><a href="shop.php">Sleeves Bài Tỷ Phú - Stone Age - Catan 5.9x9.2cm</a></li>
+                                                    <li><a href="shop.php">Xúc Xắc Xốp 6 Mặt Cỡ To</a></li>
+                                                    <li><a href="shop.php">Túi Rút 7 x 9 cm</a></li>
+                                                    <li><a href="shop.php">Tiểu Thuyết Bí Ẩn Làng Ma Sói - Lâu Đài Bá Tước Jean</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -170,7 +170,6 @@
                                 <li><a href="shop-detail.php">Shop Detail</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="service.php">Our Service</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
                     </ul>
                 </div>
@@ -253,8 +252,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Welcome To <br> Thewayshop</strong></h1>
-                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                            <h1 class="m-b-20"><strong>Welcome To <br> BoardGameStation</strong></h1>
+                            <p class="m-b-40">Hãy cùng hồi ức lại một phần tuổi thơ "boardgame" <br> món ăn tinh thần mới đầy hấp dẫn của giới trẻ Việt.</p>
                             <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                         </div>
                     </div>
@@ -265,8 +264,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Welcome To <br> Thewayshop</strong></h1>
-                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                        <h1 class="m-b-20"><strong>Welcome To <br> BoardGameStation</strong></h1>
+                        <p class="m-b-40">Hãy cùng hồi ức lại một phần tuổi thơ "boardgame" <br> món ăn tinh thần mới đầy hấp dẫn của giới trẻ Việt.</p>
                             <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                         </div>
                     </div>
