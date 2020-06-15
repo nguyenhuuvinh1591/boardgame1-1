@@ -5,7 +5,7 @@
 	$class = new adminlogin();
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$tenDangNhap = $_POST['tenDangNhap'];
-		$matKhau = ($_POST['matKhau']);
+		$matKhau = ($_POST['matKhau']); // md5
 
 		$login_check = $class->loginAdmin($tenDangNhap,$matKhau);
    }
