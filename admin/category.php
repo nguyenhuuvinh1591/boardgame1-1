@@ -11,6 +11,13 @@
     $insertCat = $cat->insertCategory($tenLoaiSanPham);
     }
 ?>
+<?php
+    if(isset($_GET['maLoaiSanPham']))
+    {
+        $id = $_GET['maLoaiSanPham'];
+        $deleteCat= $cat->deleteCategory($id);
+    }        
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -33,6 +40,12 @@
                       if(isset($insertCat))
                       {
                           echo $insertCat;
+                      }
+                      ?>
+                      <?php
+                      if(isset($deleteCat))
+                      {
+                        echo $deleteCat;
                       }
                       ?>  
                           <!-- List danh mục-->
@@ -59,8 +72,8 @@
                                               <td><?php echo $result['tenLoaiSanPham']; ?></td>  
                                               <td>
                                                  
-                                                  <a href="categoryedit.php?catid=" onclick="return popitup"><button type="button" class="btn btn-info" >Sửa</button></a>
-                                                  <a href="?deleteid=" onclick="return confirm('Bạn có chắc muốn xóa không?')"><button type="button" class="btn btn-danger" >Xóa</button></a>
+                                                  <a href="categoryedit.php?maLoaiSanPham=<?php echo $result['maLoaiSanPham']?>"><button type="button" class="btn btn-info" >Sửa</button></a>
+                                                  <a href="?maLoaiSanPham=<?php echo $result['maLoaiSanPham']?>" onclick="return confirm('Bạn có chắc muốn xóa không?')"><button type="button" class="btn btn-danger" >Xóa</button></a>
                                               </td>
                                           </tr>
                                           <?php
