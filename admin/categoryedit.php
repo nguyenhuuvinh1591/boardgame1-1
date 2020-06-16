@@ -2,7 +2,7 @@
   include 'inc/header.php';
 ?>
 <?php
-    include_once '../classes/category.php';
+    include '../classes/category.php';
 ?>
 <?php
 
