@@ -65,7 +65,6 @@
                     <div class="custom-select-box">
                         <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
 						<option>¥ VNĐ</option>
-						<option>$ USD</option>
 					</select>
                     </div>
                     <div class="right-phone-box">
@@ -163,11 +162,9 @@
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">
-                                <li><a href="cart.php">Cart</a></li>
-                                <li><a href="checkout.php">Checkout</a></li>
-                                <li><a href="my-account.php">My Account</a></li>
-                                <li><a href="wishlist.php">Wishlist</a></li>
-                                <li><a href="shop-detail.php">Shop Detail</a></li>
+                                <li><a href="cart.php">Giỏ hàng</a></li>
+                                <li><a href="checkout.php">Thanh toán</a></li>
+                                <li><a href="my-account.php">Thông tin tài khoản</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
@@ -242,7 +239,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        <p><a class="btn hvr-hover" href="shop.php">Shopping Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -254,7 +251,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> BoardGameStation</strong></h1>
                             <p class="m-b-40">Hãy cùng hồi ức lại một phần tuổi thơ "boardgame" <br> món ăn tinh thần mới đầy hấp dẫn của giới trẻ Việt.</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="shop.php">Shopping Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -266,7 +263,7 @@
                         <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Welcome To <br> BoardGameStation</strong></h1>
                         <p class="m-b-40">Hãy cùng hồi ức lại một phần tuổi thơ "boardgame" <br> món ăn tinh thần mới đầy hấp dẫn của giới trẻ Việt.</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="shop.php">Shopping Now</a></p>
                         </div>
                     </div>
                 </div>

@@ -61,7 +61,12 @@
                 </div>
             </div>
         </div>
-
+        <!--------------------------------------------------------->
+        <?php 
+            $product_feathered= $product->getproduct_feathered();
+            if($product_feathered){
+                while($result=$product_feathered->fetch_assoc()){
+        ?>
         <div class="row special-list">
             <div class="col-lg-3 col-md-6 special-grid best-seller">
                 <div class="products-single fix">
@@ -69,7 +74,7 @@
                         <div class="type-lb">
                             <p class="sale">Sale</p>
                         </div>
-                        <img src="images/maSoiOneWeek.jpg" class="img-fluid" alt="Image">
+                        <img src="images/<?php echo $result[`hinhAnh`]?>" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -80,19 +85,18 @@
                         </div>
                     </div>
                     <div class="why-text">
-                        <h4>Ma Sói One Week Ultimate Werewolf (US)</h4>
-                        <h5> $47.61</h5>
+                        <h4><?php echo $result[`tenSanPham`] ?></h4>
+                        <h5> <?php echo $result[`donGia`]?></h5>
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-3 col-md-6 special-grid top-featured">
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
                             <p class="new">New</p>
                         </div>
-                        <img src="images/banGa.jpg" class="img-fluid" alt="Image">
+                        <img src="images/<?php echo $result[`hinhAnh`]?>" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -103,13 +107,17 @@
                         </div>
                     </div>
                     <div class="why-text">
-                        <h4>Bắn Gà Là Tạch</h4>
-                        <h5> $19.39</h5>
+                    <h4><?php echo $result[`tenSanPham`] ?></h4>
+                        <h5> <?php echo $result[`donGia`]?></h5>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-3 col-md-6 special-grid top-featured">
+            <!--------------------------------------------------------->   
+            <?php 
+                }
+            }
+            ?>     
+            <!-- <div class="col-lg-3 col-md-6 special-grid top-featured">
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
@@ -153,7 +161,7 @@
                         <h5> $5.99</h5>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -170,16 +178,22 @@
                 </div>
             </div>
         </div>
+        <!----------------------------------------->
         <div class="row">
+            <?php 
+                $product_feathered= $product->getproduct_feathered();
+                if($product_feathered){
+                    for($i=4 ; $i<7 ; $i++){        
+            ?>
             <div class="col-md-6 col-lg-4 col-xl-4">
                 <div class="blog-box">
                     <div class="blog-img">
-                        <img class="img-fluid" src="images/deadofwinter.jpg" alt="" />
+                        <img class="img-fluid" src="images/<?php echo $result[`hinhAnh`]?>" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="title-blog">
-                            <h3>Dead of Winter - The Long Night (US)</h3>
-                            <p>Dead of Winter - The Long Night là bản mở rộng độc lập của Dead of Winter: A Crossroads Game, một tựa game hợp tác sinh tồn chủ đề xác sống vô vùng thú vị. </p>
+                            <h3><?php echo $result[`tenSanPham`] ?></h3>
+                            <p><?php echo $result[`mieuTa`] ?></p>
                         </div>
                         <ul class="option-blog">
                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
@@ -189,7 +203,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 col-xl-4">
+            <?php 
+            }
+        } ?>
+        </div>
+    </div>
+</div>
+            <!-- <div class="col-md-6 col-lg-4 col-xl-4">
                 <div class="blog-box">
                     <div class="blog-img">
                         <img class="img-fluid" src="images/maSoiOneWeek.jpg" alt="" />
@@ -225,12 +245,8 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+            </div> -->
 <!-- End Blog  -->
-
 <?php
     include "inc/footer.php";
 ?>
