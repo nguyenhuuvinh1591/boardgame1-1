@@ -22,7 +22,7 @@
             $soLuongSanPham = mysqli_real_escape_string($this->db->link, $data['soLuongSanPham']);
             $mieuTaSanPham = mysqli_real_escape_string($this->db->link, $data['mieuTaSanPham']);
             $giaSanPham = mysqli_real_escape_string($this->db->link, $data['giaSanPham']);
-            //kiểm tra hình ảnh
+            //kiểm tra hình ảnh cho vào folder uploads
             $permited = array('jpg', 'jpeg', 'png', 'gif');
             $file_name = $_FILES['image']['name'];
             $file_size = $_FILES['image']['size'];
@@ -33,7 +33,8 @@
             $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
             $uploaded_image = "uploads/".$unique_image;
 
-
+            if($)
+            //xin chào các ban
             if(empty($tenLoaiSanPham))
             {
                 $alert = "<br><span class='alert alert-danger'>Tên danh mục không được để trống</span>";
