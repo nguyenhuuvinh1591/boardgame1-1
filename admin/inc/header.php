@@ -27,7 +27,7 @@
 
 <!-- Sidebar -->
 <?php
-    include_once 'sidebar.php';
+    include 'sidebar.php';
 ?>
 <!-- End of Sidebar -->
 

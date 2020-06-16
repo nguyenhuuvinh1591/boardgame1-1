@@ -1,8 +1,8 @@
 <?php
-  include 'inc/header.php';
+  include  'inc/header.php';
 ?>
-<?php
-    include_once '../classes/category.php';
+ <?php
+    include '../classes/category.php';
 ?>
 <?php
     include '../classes/product.php';
@@ -30,6 +30,11 @@
             <div class="panel-heading">
                 <span class="textHeading">Thêm sản phẩm</span>
             </div>
+            <?php
+                if(isset($insertProduct)){
+                    echo $insertProduct;
+                }
+            ?>
             <div class="panel-body">
                 <form  method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
                     <table style="width: 100%;">
@@ -95,6 +100,18 @@
 
                     <tr>
                       <td class="tabLabel">
+                          <label class="labelAddProduct">Sản phẩm nổi bật: </label>
+                      </td>
+                      <td>
+                          <select  class="inputAddProduct" name="sanPhamNoiBat" required> 
+                                    <option  value="1">Nổi bật</option>
+                                    <option  value="0">Không nổi bật</option>
+                          </select> 
+                      </td>                   
+                  </tr>
+
+                    <tr>
+                      <td class="tabLabel">
                           <label class="labelAddProduct">Hình ảnh sản phẩm: </label>
                       </td>
                       <td>
@@ -102,6 +119,7 @@
                           <img id="output" style="width: 20%;" />
                       </td>
                   </tr>
+                  
 
                      </table>
                      <input type="submit" name="submit" value="Thêm" class="btn btn-success" style="margin: 10px;">
@@ -184,5 +202,5 @@ function validationForm(){
       <!-- End of Footer -->
 
       <?php
-      include 'inc/footer.php'
+      include 'inc/footer.php';
     ?>

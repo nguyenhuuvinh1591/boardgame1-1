@@ -1,12 +1,12 @@
 <?php
-    include '../lib/database.php';
-    include '../helpers/format.php';
+    include_once '../lib/database.php';
+    include_once '../helpers/format.php';
 ?>
 <?php
     class category
     {
-        private $db;
-        private $fm;
+        public $db;
+        public $fm;
 
         public function __construct()
         {
