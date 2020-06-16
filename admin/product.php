@@ -1,6 +1,26 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+    include '../classes/product.php';
+?>
+<?php
+    include '../classes/category.php';
+?>
+<?php
+    include_once '../helpers/format.php';
+?>
+<?php
+    $pd = new product();
+    $fm = new Format();
+?>
+<?php
+    if(isset($_GET['maSanPham']))
+    {
+        $id = $_GET['maSanPham'];
+        $an= $pd->setTrangThai($id);
+    }        
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -18,40 +38,73 @@
                   </div>
 
                   <div class="panel-body">   
-                      <input type="text" name="productName" placeholder="Nhập tên sản phẩm..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
-                      <input type="submit" name="submit" value="Tìm kiếm" class="btn btn-default" > 
-                      <a href="productadd.php"><button type="button" class="btn btn-success" style="float: right;">Thêm sản phẩm</button></a>
-                      <p></p>
+                      <a href="productadd.php"><button type="button" class="btn btn-success" style="float: right; height: 34px ">Thêm sản phẩm</button></a>
+                      <br>
+                      <?php
+                        if(isset($an))
+                        {
+                            echo $an;
+                        }
+                      ?>
                               <div class="table-responsive" style="margin-top: 2%">
                                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                       <thead>
                                           <tr>
                                               <th>Mã sản phẩm</th>
-                                              <th>Tên sản phẩm</th>
                                               <th>Tên danh mục</th>
+                                              <th>Tên sản phẩm</th>
                                               <th>Số lượng</th>
                                               <th>Giá</th>
                                               <th>Miêu tả sản phẩm</th>
-                                              <th>Trạng thái</th>
                                               <th>Ảnh sản phẩm</th>
+                                              <th>Trạng thái</th>
+                                              <th>Sản phẩm nổi bật</th>
                                           </tr>
                                       </thead>
                                       <tbody>
-                                        
+                                      <?php
+                                            $showproduct = $pd->showProduct();
+                                            if(isset($showproduct))
+                                            {
+                                                while($result = $showproduct->fetch_assoc())
+                                                {
+                                          ?>
                                           <tr class="odd gradeX">
-                                              <td>ma</td>
-                                              <td>ten</td>
-                                              <td>tendanhmuc</td>
-                                              <td>soluong</td>
-                                              <td>gia</td>
-                                              <td>mieuta</td>
-                                              <td>trangthai</td>
-                                              <td><img src="uploads/" width='80'> </td>
+                                              <td><?php echo $result['maSanPham'] ?></td>
+                                              <td><?php echo $result['tenLoaiSanPham'] ?></td>
+                                              <td><?php echo $result['tenSanPham'] ?></td>
+                                              <td><?php echo $result['soLuong'] ?></td>
+                                              <td><?php echo $result['donGia'] ?></td>
+                                              <td><?php echo $fm->textShorten($result['mieuTa'],50)?></td>
+                                              <td><img src="../img/<?php echo $result['hinhAnh']?>" width='80'> </td>
+                                              <td><?php
+                                              if($result['trangThai'] == 1){
+                                                echo 'Hiện';
+                                              }
+                                              else
+                                              {
+                                                  echo 'Ẩn';
+                                              }
+                                                ?></td>
+
+                                              <td><?php 
+                                              if($result['sanPhamNoiBat'] == 1){
+                                                  echo 'Nổi bật';
+                                              }
+                                              else
+                                              {
+                                                  echo 'Không nổi bật';
+                                              }
+                                                  ?></td>
                                               <td>
-                                                  <a href="productedit.php" ><button type="button" class="btn btn-info">Sửa</button></a>
-                                                  <a href="?hideid=" onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này không?')"><button type="button" class="btn btn-warning " >Ẩn</button></a>
+                                                  <a href="productedit.php?maSanPham=<?php echo $result['maSanPham'] ?>" ><button type="button" class="btn btn-info">Sửa</button></a>
+                                                  <a href="?maSanPham=<?php echo $result['maSanPham'] ?>" onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này không?')"><button type="button" class="btn btn-warning " >Ẩn</button></a>
                                               </td>
                                           </tr>
+                                          <?php
+                                                }
+                                            }
+                                          ?>
                                           
                                       </tbody>
                                       
