@@ -30,6 +30,11 @@
             <div class="panel-heading">
                 <span class="textHeading">Thêm sản phẩm</span>
             </div>
+            <?php
+                if(isset($insertProduct)){
+                    echo $insertProduct;
+                }
+            ?>
             <div class="panel-body">
                 <form  method="POST" action="productadd.php" enctype="multipart/form-data" name="formUser"> <!--enctype để có thể thêm hình ảnh -->
                     <table style="width: 100%;">
