@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
             <div class="panel-body">
             <?php
                 $getProductByID = $pd->getProductbyID($id);
-                if($getProductByID)
+                if(isset($getProductByID))
                 {
                     while($resultProduct = $getProductByID->fetch_assoc())
                     {

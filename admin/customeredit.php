@@ -1,6 +1,26 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+    include '../classes/customer.php';
+?>
+<?php
+    if(!isset($_GET['maKhachHang']) || $_GET['maKhachHang'] == NULL)
+    {
+        echo "<script>window.location = 'customerlist.php'</script>"; 
+    }
+    else
+    {
+        $id = $_GET['maKhachHang'];
+    }
+?>
+<?php
+    $cus = new customer();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){ 
+        $updateCus = $cus->updateCustomer($_POST,$id);
+        }
+?>
+
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -17,6 +37,14 @@
                         <span class="textHeading">Sửa thông tin khách hàng</span>
                     </div>
                     <div class="panel-body">
+                        <?php
+                            $getCusbyID= $cus->getCusbyID($id);
+                            if(isset($getCusbyID))
+                            {
+                                while($result= $getCusbyID->fetch_assoc())
+                                {
+
+                        ?>
                         <form action="" method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
                             <table style="width: 100%;">
                               <tr>
@@ -24,7 +52,7 @@
                                     <label class="labelAddProduct">Họ: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="hoNguoiQuanTri" placeholder="Nhập họ..." class="inputAddProduct" required autofocus>
+                                    <input type="text" name="hoKhachHang" value="<?php echo $result['hoKhachHang']?>" class="inputAddProduct" required autofocus>
                                 </td>
                             </tr>
         
@@ -33,7 +61,7 @@
                                     <label class="labelAddProduct">Tên: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="tenNguoiQuanTri" placeholder="Nhập tên..." class="inputAddProduct" required autofocus>
+                                    <input type="text" name="tenKhachHang" value="<?php echo $result['tenKhachHang']?>" class="inputAddProduct" required autofocus>
                                 </td>
                             </tr>
 
@@ -42,7 +70,7 @@
                                   <label class="labelAddProduct">Gmail: </label>
                               </td>
                               <td>
-                                  <input type="email" name="thuDienTuQT" placeholder="Nhập gmail..." class="inputAddProduct" required>
+                                  <input type="email" name="gmailKhachHang" value="<?php echo $result['gmailKhachHang']?>" class="inputAddProduct" required>
                               </td>
                           </tr>
 
@@ -51,7 +79,7 @@
                                 <label class="labelAddProduct">Số điện thoại: </label>
                             </td>
                             <td>
-                                <input type="text" name="soDienThoai" placeholder="Nhập số điện thoại..." class="inputAddProduct" required>
+                                <input type="text" name="soDienThoai" value="<?php echo $result['soDienThoai']?>" class="inputAddProduct" required>
                             </td>
                         </tr>
                          
@@ -60,7 +88,7 @@
                               <label class="labelAddProduct">Địa chỉ: </label>
                           </td>
                           <td>
-                              <input type="text" name="diaChi" placeholder="Nhập địa chỉ..." class="inputAddProduct" required>
+                              <input type="text" name="diaChi" value="<?php echo $result['diaChi']?>" class="inputAddProduct" required>
                           </td>
                       </tr>
       
@@ -69,40 +97,23 @@
                             <label class="labelAddProduct">Địa chỉ giao hàng: </label>
                         </td>
                         <td>
-                            <input type="text" name="diaChiGiaoHang" placeholder="Nhập địa chỉ giao hàng..." class="inputAddProduct" required>
+                            <input type="text" name="diaChiGiaoHang" value="<?php echo $result['diaChiGiaoHang']?>" class="inputAddProduct" required>
                         </td>
-                    </tr>
-      
-                          <tr>
-                              <td class="tabLabel">
-                                  <label class="labelAddProduct">Tên đăng nhập: </label>
-                              </td>
-                              <td>
-                                  <input type="text" name="tenDangNhap" placeholder="Nhập tên đăng nhập..." class="inputAddProduct" required>
-                              </td>
-                          </tr>
-      
-                          <tr>
-                              <td class="tabLabel">
-                                  <label class="labelAddProduct">Mật khẩu: </label>
-                              </td>
-                              <td>
-                                  <input type="password" name="matKhau" placeholder="Nhập mật khẩu..." class="inputAddProduct" required>
-                              </td>
-                          </tr>
-      
-                          <tr>
-                              <td class="tabLabel">
-                                  <label class="labelAddProduct">Nhập lại mật khẩu: </label>
-                              </td>
-                              <td>
-                                  <input type="password" name="matKhau2" placeholder="Nhập lại mật khẩu..." class="inputAddProduct" required>
-                              </td>
-                          </tr>
-                            
+                    </tr>              
                              </table>
                              <input type="submit" name="submit" value="Sửa" class="btn btn-success" style="margin: 10px;">
-                        </form>  
+                        </form>
+                        <?php
+                            if(isset($updateCus))
+                            {
+                                echo $updateCus;
+                            }
+                        ?>
+                        <?php
+                                                            
+                             }
+                           }
+                        ?>  
                      </div>  
                 </div>
                 <!-- /.row -->

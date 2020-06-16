@@ -36,6 +36,7 @@
                 }
             ?>
             <div class="panel-body">
+                <br>
                 <form  method="POST" action="productadd.php" enctype="multipart/form-data" name="formUser"> <!--enctype để có thể thêm hình ảnh -->
                     <table style="width: 100%;">
 
@@ -123,11 +124,6 @@
                      </table>
                      <input type="submit" name="submit" value="Thêm" class="btn btn-success" style="margin: 10px;">
                 </form>
-                <?php
-                if(isset($insertProduct)){
-                    echo $insertProduct;
-                }
-            ?>  
              </div>  
         </div>
         <!-- /.row -->
