@@ -14,53 +14,53 @@
             $this->fm = new Format();
         }
 
-        public function insertProduct($data,$files)
-        {
+        // public function insertProduct($data,$files)
+        // {
 
-            $maDonHang = mysqli_real_escape_string($this->db->link, $data['maDonHang']);
-            $maKhachHang = mysqli_real_escape_string($this->db->link, $data['maKhachHang']);
-            $ngayLapHoaDon = mysqli_real_escape_string($this->db->link, $data['ngayLapHoaDon']);
-            $tongTien = mysqli_real_escape_string($this->db->link, $data['tongTien']);
-            $trangThai = mysqli_real_escape_string($this->db->link, $data['trangThai']);
-            //kiểm tra hình ảnh cho vào folder uploads
-            $permited = array('jpg', 'jpeg', 'png', 'gif');
-            if(isset($_FILES['image'])){
-                $file_name= $_FILES['image']['name'];
-            }
-            if(isset($_FILES['image'])){
-                $file_size= $_FILES['image']['size'];
-            }
-            if(isset($_FILES['image'])){
-                $file_temp= $_FILES['image']['tmp_name'];
-            }
-            $div = explode('.',$file_name);
-            $file_ext = strtolower(end($div));
-            $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
-            $uploaded_image = "../img/".$unique_image;
+        //     $maDonHang = mysqli_real_escape_string($this->db->link, $data['maDonHang']);
+        //     $maKhachHang = mysqli_real_escape_string($this->db->link, $data['maKhachHang']);
+        //     $ngayLapHoaDon = mysqli_real_escape_string($this->db->link, $data['ngayLapHoaDon']);
+        //     $tongTien = mysqli_real_escape_string($this->db->link, $data['tongTien']);
+        //     $trangThai = mysqli_real_escape_string($this->db->link, $data['trangThai']);
+        //     //kiểm tra hình ảnh cho vào folder uploads
+        //     $permited = array('jpg', 'jpeg', 'png', 'gif');
+        //     if(isset($_FILES['image'])){
+        //         $file_name= $_FILES['image']['name'];
+        //     }
+        //     if(isset($_FILES['image'])){
+        //         $file_size= $_FILES['image']['size'];
+        //     }
+        //     if(isset($_FILES['image'])){
+        //         $file_temp= $_FILES['image']['tmp_name'];
+        //     }
+        //     $div = explode('.',$file_name);
+        //     $file_ext = strtolower(end($div));
+        //     $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
+        //     $uploaded_image = "../img/".$unique_image;
 
-            if(empty($tenKhachHang || $gmailKhachHang || $soLuongSanPham  || $giaTriDonHang  || $donGia  ||$sanPhamNoiBat  ||  $file_name )){
-                $alert = "<br><span class='alert alert-danger'>Vui lòng điền đầy đủ thông tin</span>";
-                return $alert;
-            }
-            else
-            {
-                move_uploaded_file($file_temp,$uploaded_image);
-                $query = "INSERT INTO sanpham(maLoaiSanPham,tenSanPham,soLuong,donGia,mieuTa,hinhAnh,trangThai,sanPhamNoiBat) 
-                VALUES('$maLoaiSanPham','$tenSanPham','$soLuong','$donGia','$mieuTa','$unique_image','1','$sanPhamNoiBat')";
-                $result = $this->db->insert($query);
+        //     if(empty($tenKhachHang || $gmailKhachHang || $soLuongSanPham  || $giaTriDonHang  || $donGia  ||$sanPhamNoiBat  ||  $file_name )){
+        //         $alert = "<br><span class='alert alert-danger'>Vui lòng điền đầy đủ thông tin</span>";
+        //         return $alert;
+        //     }
+        //     else
+        //     {
+        //         move_uploaded_file($file_temp,$uploaded_image);
+        //         $query = "INSERT INTO sanpham(maLoaiSanPham,tenSanPham,soLuong,donGia,mieuTa,hinhAnh,trangThai,sanPhamNoiBat) 
+        //         VALUES('$maLoaiSanPham','$tenSanPham','$soLuong','$donGia','$mieuTa','$unique_image','1','$sanPhamNoiBat')";
+        //         $result = $this->db->insert($query);
 
-                if($result)
-                {
-                    $alert = "<br><span class='alert alert-success'>Thêm sản phẩm thành công</span>";
-                    return $alert;
-                }
-                else
-                {
-                    $alert = "<br><span class='alert alert-danger'>Thêm sản phẩm không thành công</span>";
-                    return $alert;
-                }
-            }
-        }
+        //         if($result)
+        //         {
+        //             $alert = "<br><span class='alert alert-success'>Thêm sản phẩm thành công</span>";
+        //             return $alert;
+        //         }
+        //         else
+        //         {
+        //             $alert = "<br><span class='alert alert-danger'>Thêm sản phẩm không thành công</span>";
+        //             return $alert;
+        //         }
+        //     }
+        // }
 
         public function showCart()
         {
@@ -69,6 +69,13 @@
             order by maDonHang desc"; //sắp xếp giảm dần
             $result = $this->db->select($query);
             return $result;   
+        }
+
+        public function showDetailsCart()
+        {
+            $query = "SELECT * FROM donhang, tbl_chitietdonhang WHERE tbl_donhang.maDonHang = tbl_chitietdonhang.maDonHang AND tbl_donhang.maDonHang = '$id' ";
+            $result = $this->db->select($query);
+            return $result;
         }
 
         public function getproduct_feathered()
@@ -85,9 +92,9 @@
             return $result;
         }
 
-        public function getProductbyID($id)
+        public function getCartbyID($id)
         {
-            $query = "SELECT * FROM sanpham WHERE maSanPham = '$id'";
+            $query = "SELECT * FROM donhang WHERE maDonHang = '$id'";
             $result = $this->db->select($query);
             return $result;
         }

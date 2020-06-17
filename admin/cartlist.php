@@ -84,7 +84,7 @@ $cart = new cart();
                                                   
                                               </td>
                                               <td>
-                                                  <button type="button" class="btn btn-info">Xem chi tiết</button>
+                                              <a ><button type="button" class="btn btn-info">Xem chi tiết</button></a>
                                                   <?php
                                                     if($result['trangThai'] == 0)
                                                     {
