@@ -107,16 +107,3 @@
 
     }
 ?>
-
-
-<style type="text/css">
-    .errors{
-    font-size: 18px;
-    color: red;
-  }
-  .success
-  {
-    font-size: 18px;
-    color: green;
-  }
-</style>

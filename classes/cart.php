@@ -71,13 +71,6 @@
             return $result;   
         }
 
-        public function showDetailsCart()
-        {
-            $query = "SELECT * FROM donhang, tbl_chitietdonhang WHERE tbl_donhang.maDonHang = tbl_chitietdonhang.maDonHang AND tbl_donhang.maDonHang = '$id' ";
-            $result = $this->db->select($query);
-            return $result;
-        }
-
         public function getproduct_feathered()
         {
             $query = "SELECT * FROM sanpham WHERE sanPhamNoiBat = '1'";
@@ -223,15 +216,3 @@
 
     }
 
-    ?>
-<style type="text/css">
-    .errors{
-    font-size: 18px;
-    color: red;
-  }
-  .success
-  {
-    font-size: 18px;
-    color: green;
-  }
-</style>
