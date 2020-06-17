@@ -3,7 +3,7 @@
     include_once '../helpers/format.php';
 ?>
 <?php
-    class category
+    class vaitro
     {
         public $db;
         public $fm;
@@ -14,7 +14,7 @@
             $this->fm = new Format();
         }
 
-        public function insertCategory($tenLoaiSanPham)
+        public function insertvaitro($tenLoaiSanPham)
         {
             $tenLoaiSanPham = $this->fm->validation($tenLoaiSanPham);
 
@@ -44,9 +44,9 @@
             }
         }
 
-        public function showCategory()
+        public function showvaitro()
         {
-            $query = "SELECT * FROM loaisanpham order by maLoaiSanPham desc"; //sắp xếp giảm dần
+            $query = "SELECT * FROM vaitro order by mavaitro desc"; //sắp xếp giảm dần
             $result = $this->db->select($query);
             return $result;   
         }
@@ -58,7 +58,7 @@
             return $result;
         }
 
-        public function updateCategory($tenLoaiSanPham,$id)
+        public function updatevaitro($tenLoaiSanPham,$id)
         {
             $tenLoaiSanPham = $this->fm->validation($tenLoaiSanPham);
 
@@ -88,7 +88,7 @@
             }
         }
 
-        public function deleteCategory($id)
+        public function deletevaitro($id)
         {
             $query = "DELETE FROM loaisanpham WHERE maLoaiSanPham = '$id'";
             $result = $this->db->delete($query);
@@ -107,4 +107,3 @@
 
     }
 ?>
-

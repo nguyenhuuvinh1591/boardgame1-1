@@ -1,6 +1,28 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+  include_once '../classes/vaitro.php';
+?>
+<?php
+  include_once '../classes/user.php';
+?>
+<?php
+    if(!isset($_GET['tenDangNhap']) || $_GET['tenDangNhap'] == NULL)
+    {
+        echo "<script>window.location = 'userlist.php'</script>"; 
+    }
+    else
+    {
+        $tenDangNhap = $_GET['tenDangNhap'];
+    }
+?>
+<?php
+    $user = new user();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){ 
+        $updateuser = $user->updateuser($_POST,$tenDangNhap);
+        }
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -17,50 +39,39 @@
                         <span class="textHeading">Sửa thông tin quản trị viên</span>
                     </div>
                     <div class="panel-body">
+                    <?php
+                            $getUserbyID= $user->getUserbyID($tenDangNhap);
+                            if(isset($getUserbyID))
+                            {
+                                while($result_user= $getUserbyID->fetch_assoc())
+                                {
+
+                        ?>
                         <form action="" method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
                             <table style="width: 100%;">
+                                    <tr>
+                                <td class="tabLabel">
+                                    <label class="labelAddProduct">Họ: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="hoNguoiQuanTri" value="<?php echo $result_user['hoNguoiQuanTri']?>" class="inputAddProduct" required autofocus>
+                                </td>
+                            </tr>       
                             <tr>
                                 <td class="tabLabel">
-                                    <label class="labelAddProduct">Họ tên:  </label>
+                                    <label class="labelAddProduct">Tên: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="tenNguoiQuanTri" value="<?php echo $result_user['tenNguoiQuanTri'] ?>" class="inputAddProduct" autofocus>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="tabLabel">
-                                    <label class="labelAddProduct">Email: </label>
-                                </td>
-                                <td>
-                                    <input type="email" name="thuDienTuQT" value="<?php echo $result_user['thuDienTuQT'] ?>" class="inputAddProduct" >
-                                </td>
-                            </tr>
-
-                              <tr>
-                                <td class="tabLabel">
-                                    <label class="labelAddProduct">Tên đăng nhập: </label>
-                                </td>
-                                <td>
-                                    <input type="text" name="tenDangNhap" value="<?php echo $result_user['tenDangNhap'] ?>" class="inputAddProduct" >
-                                </td>
-                            </tr>
-
-                             <tr>
-                                <td class="tabLabel">
-                                    <label class="labelAddProduct">Mật khẩu: </label>
-                                </td>
-                                <td>
-                                    <input type="text" name="matKhau" value="<?php echo $result_user['matKhau'] ?>" class="inputAddProduct" >
+                                    <input type="text" name="tenNguoiQuanTri" value="<?php echo $result_user['tenNguoiQuanTri']?>" class="inputAddProduct" required autofocus>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td class="tabLabel">
-                                    <label class="labelAddProduct">Nhập lại mật khẩu: </label>
+                                    <label class="labelAddProduct">Gmail: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="matKhau2" value="<?php echo $result_user['matKhau'] ?>" class="inputAddProduct" >
+                                    <input type="email" name="gmailNguoiQuanTri" value="<?php echo $result_user['gmailNguoiQuanTri'] ?>" class="inputAddProduct" >
                                 </td>
                             </tr>
 
@@ -70,21 +81,42 @@
                                 </td>
                                 <td>
                                     <select class="inputAddProduct" name="maVaiTro" required>
-                                        <option value="0">----Chọn loại tài khoản----</option>
-    
-                                        <option 
-                                    
-                                        value="<?php echo $result_type['maVaiTro']; ?>"><?php echo $result_type['tenVaiTro']; ?>
-                                            
-                                        </option>
 
+                                                <?php
+                                            $vaitro = new vaitro();
+                                            $vaitrolist = $vaitro->showvaitro();
+                                            if($vaitrolist)
+                                            {
+                                                while($result = $vaitrolist->fetch_assoc())
+                                                {
+                                        ?>          
+                                                <option
+                                                <?php
+                                                    if($result['maVaiTro'] == $result_user['maVaiTro']){ 
+                                                        echo 'selected';
+                                                    }
+                                                ?>
+                                                name="maVaiTro" value="<?php echo $resultProduct['maVaiTro']?>"><?php echo $result['tenVaiTro'] ?></option>
+                                                <?php
+                                                }
+                                            }
+                                        ?>
                                     </select>
                                 </td>        
                             </tr>
                             
                              </table>
                              <input type="submit" name="submit" value="Sửa" class="btn btn-success" style="margin: 10px;">
-                        </form>  
+                        </form>
+                        <?php
+                        if(isset($updateuser)){
+                            echo $updateuser;
+                        }
+                        ?>
+                        <?php
+                                }
+                            }
+                        ?>  
                      </div>  
                 </div>
                 <!-- /.row -->

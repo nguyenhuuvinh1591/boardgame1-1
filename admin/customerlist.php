@@ -1,6 +1,17 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+  include_once '../classes/customer.php';
+?>
+<?php
+$cus = new customer();
+    if(isset($_GET['maKhachHang']))
+    {
+        $id = $_GET['maKhachHang'];
+        $khoa= $cus->setTrangThai($id);
+    }        
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -17,11 +28,15 @@
                   <div class="panel-heading">
                       <span class="textHeading">Danh sách khách hàng</span>
                   </div>
-                  
-                  <div class="panel-body">   
-                      <input type="text" name="userName" placeholder="Nhập khách hàng..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
-                      <input type="submit" name="submit" value="Tìm kiếm" class="btn btn-default" > 
+                  <?php
+                        if(isset($khoa))
+                        {
+                            echo $khoa;
+                        }
+                    ?>
+                  <div class="panel-body">    
                       <a href="customeradd.php"><button type="button" class="btn btn-success" style="float: right;">Thêm khách hàng</button></a>
+                      <br>
                       <p></p>
                               <div class="table-responsive" style="margin-top: 2%">
                                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -39,26 +54,46 @@
                                           </tr>
                                       </thead>
                                       <tbody>
-                                          <tr class="odd gradeX">
-                                              <td>stt</td>
-                                              <td>ho</td>
-                                              <td>ten</td>
-                                              <td>tendangnhap</td>
-                                              <td>gmail</td>
-                                              <td>sdt</td>
-                                              <td>diachi</td>
-                                              <td>diachigiaohang</td>
-                                              <td>trangthai</td>
-
+                                          <?php
+                                            $cus = new customer();
+                                            $showCus = $cus->showCustomer();
+                                            
+                                            if(isset($showCus))
+                                            {
+                                                $i = 0;
+                                                while($result = $showCus->fetch_assoc())
+                                                {
+                                                    $i++;
+                                                ?>
+                                                <tr class="odd gradeX">
+                                                    <td><?php echo $i ?></td>
+                                                    <td><?php echo $result['hoKhachHang'] ?></td>
+                                                    <td><?php echo $result['tenKhachHang']?></td>
+                                                    <td><?php echo $result['tenDangNhap'] ?></td>
+                                                    <td><?php echo $result['gmailKhachHang'] ?></td>
+                                                    <td><?php echo $result['soDienThoai'] ?></td>
+                                                    <td><?php echo $result['diaChi'] ?></td>
+                                                    <td><?php echo $result['diaChiGiaoHang'] ?></td>
+                                                    <td><?php
+                                                    if($result['trangThai'] == 1)
+                                                    {
+                                                        echo 'Mở';   
+                                                    }
+                                                    else
+                                                    {
+                                                        echo 'Khóa';
+                                                    }  ?></td>
                                               <td>
-                                                  <a href="customeredit.php?username" onclick="return"><button type="button" class="btn btn-info">Sửa</button></a>
-                                                  
-                                                  <a href="?deletename=" ><button type="button" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?');" >Xóa</button></a>
-
-                                                  <a href="?statusname=" ><button type="button" class="btn btn-warning">Mở / Khóa</button></a>
+                                                  <a href="customeredit.php?maKhachHang=<?php echo $result['maKhachHang'] ?>" onclick="return"><button type="button" class="btn btn-info">Sửa</button></a>
+                                                  <a href="?maKhachHang=<?php echo $result['maKhachHang'] ?>" ><button type="button" class="btn btn-warning">Khóa</button></a>
 
                                               </td>
-                                          </tr>
+                                                </tr>
+                                                
+                                          <?php
+                                            }
+                                            }
+                                          ?>
                                           
                                           
                                       </tbody>

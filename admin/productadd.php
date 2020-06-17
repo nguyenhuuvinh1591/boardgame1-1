@@ -9,7 +9,7 @@
 ?>
 <?php
     $pd = new product();
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){ //kiểm tra người dùng phải dùng phương thức post để submit
     $insertProduct = $pd->insertProduct($_POST,$_FILES);
     }
 ?>
@@ -36,7 +36,8 @@
                 }
             ?>
             <div class="panel-body">
-                <form  method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
+                <br>
+                <form  method="POST" action="productadd.php" enctype="multipart/form-data" name="formUser"> <!--enctype để có thể thêm hình ảnh -->
                     <table style="width: 100%;">
 
                     <tr>
@@ -53,7 +54,7 @@
                           <label class="labelAddProduct">Danh mục sản phẩm: </label>
                       </td>
                       <td>
-                          <select class="inputAddProduct" name="danhMucSanPham" required> 
+                          <select class="inputAddProduct" name="maLoaiSanPham" required> 
                               <?php
                                 $cat = new category();
                                 $catlist = $cat->showCategory();
@@ -62,7 +63,7 @@
                                     while($result = $catlist->fetch_assoc())
                                     {
                               ?>          
-                                    <option name="loaiSanPham" value="<?php echo $result['maLoaiSanPham']?>"><?php echo $result['tenLoaiSanPham'] ?></option>
+                                    <option name="maLoaiSanPham" value="<?php echo $result['maLoaiSanPham']?>"><?php echo $result['tenLoaiSanPham'] ?></option>
                                     <?php
                                     }
                                 }
@@ -76,7 +77,7 @@
                             <label class="labelAddProduct">Số lượng: </label>
                         </td>
                         <td>
-                            <input type="text" name="soLuongSanPham" placeholder="Nhập số lượng..." class="inputAddProduct" required autofocus>
+                            <input type="text" name="soLuong" placeholder="Nhập số lượng..." class="inputAddProduct" required autofocus>
                         </td>
                     </tr>
 
@@ -85,7 +86,7 @@
                             <label class="labelAddProduct">Miêu tả sản phẩm: </label>
                         </td>
                         <td>
-                          <textarea name="mieuTaSanPham" rows="2" cols="25" placeholder="Nhập miêu tả sản phẩm..." class="inputAddProduct" style="height: 80px;" required></textarea>
+                          <textarea name="mieuTa" rows="2" cols="25" placeholder="Nhập miêu tả sản phẩm..." class="inputAddProduct" style="height: 80px;" required></textarea>
                         </td>
                     </tr>
 
@@ -94,7 +95,7 @@
                             <label class="labelAddProduct">Giá sản phẩm: </label>
                         </td>
                         <td>
-                            <input type="text" name="giaSanPham" placeholder="Nhập giá sản phẩm..." class="inputAddProduct" required>
+                            <input type="text" name="donGia" placeholder="Nhập giá sản phẩm..." class="inputAddProduct" required>
                         </td>
                     </tr>
 
@@ -116,14 +117,13 @@
                       </td>
                       <td>
                           <input name="image" type="file" accept="image/*" onchange="loadFile(event)" required>
-                          <img id="output" style="width: 20%;" />
                       </td>
                   </tr>
                   
 
                      </table>
                      <input type="submit" name="submit" value="Thêm" class="btn btn-success" style="margin: 10px;">
-                </form>  
+                </form>
              </div>  
         </div>
         <!-- /.row -->
@@ -189,7 +189,6 @@ function validationForm(){
         return false;
     }
 }
-
 </script>
 <!-- Footer -->
 <!-- <footer class="sticky-footer bg-white">

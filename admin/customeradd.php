@@ -1,6 +1,15 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+  include_once '../classes/customer.php';
+?>
+<?php
+    $cus = new customer();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
+    $insertCus = $cus->insertCustomer($_POST);
+    }
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -16,8 +25,15 @@
             <div class="panel-heading">
                 <span class="textHeading">Thêm khách hàng</span>
             </div>
-            <div class="panel-body"> 
-                <form  method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
+            <?php
+                    if(isset($insertCus))
+                    {
+                        echo $insertCus;
+                    }
+                ?>
+            <div class="panel-body">
+                <br> 
+                <form action="customeradd.php" method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
                     <table style="width: 100%;">
 
                     <tr>
@@ -25,7 +41,7 @@
                             <label class="labelAddProduct">Họ: </label>
                         </td>
                         <td>
-                            <input type="text" name="hoNguoiQuanTri" placeholder="Nhập họ..." class="inputAddProduct" required autofocus>
+                            <input type="text" name="hoKhachHang" placeholder="Nhập họ..." class="inputAddProduct" required autofocus>
                         </td>
                     </tr>
 
@@ -34,7 +50,7 @@
                             <label class="labelAddProduct">Tên: </label>
                         </td>
                         <td>
-                            <input type="text" name="tenNguoiQuanTri" placeholder="Nhập tên..." class="inputAddProduct" required autofocus>
+                            <input type="text" name="tenKhachHang" placeholder="Nhập tên..." class="inputAddProduct" required autofocus>
                         </td>
                     </tr>
 
@@ -43,7 +59,7 @@
                             <label class="labelAddProduct">Gmail: </label>
                         </td>
                         <td>
-                            <input type="email" name="thuDienTuQT" placeholder="Nhập gmail..." class="inputAddProduct" required>
+                            <input type="email" name="gmailKhachHang" placeholder="Nhập gmail..." class="inputAddProduct" required>
                         </td>
                     </tr>
 
@@ -102,7 +118,9 @@
                     </tr>
                      </table>
                      <input type="submit" name="submit" value="Thêm" class="btn btn-success" style="margin: 10px;">
-                </form>  
+                     
+                </form>
+  
              </div>  
         </div>
         <!-- /.row -->

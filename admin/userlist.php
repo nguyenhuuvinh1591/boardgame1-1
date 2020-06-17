@@ -1,6 +1,20 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+  include_once '../classes/customer.php';
+?>
+<?php
+  include_once '../classes/user.php';
+?>
+<?php
+$user = new user();
+    if(isset($_GET['tenDangNhap']))
+    {
+        $id = $_GET['tenDangNhap'];
+        $khoa= $user->setTrangThai($id);
+    }        
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -10,18 +24,23 @@
                   <div class="col-lg-12">
                       <h1 class="page-header">Quản lý người dùng</h1>
                   </div>
+
                   <!-- /.col-lg-12 -->
               </div>
-
+              
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <span class="textHeading">Danh sách quản trị viên</span>
                   </div>
-                  
+                  <?php
+                        if(isset($khoa))
+                        {
+                            echo $khoa;
+                        }
+                    ?>
                   <div class="panel-body">   
-                      <input type="text" name="userName" placeholder="Nhập quản trị viên..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
-                      <input type="submit" name="submit" value="Tìm kiếm" class="btn btn-default" > 
                       <a href="useradd.php"><button type="button" class="btn btn-success" style="float: right;">Thêm quản trị viên</button></a>
+                      <br>
                       <p></p>
                               <div class="table-responsive" style="margin-top: 2%">
                                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -37,24 +56,51 @@
                                           </tr>
                                       </thead>
                                       <tbody>
+                                          <?php
+                                            $user = new user();
+                                            $showuser = $user->showuser();
+                                            if(isset($showuser))
+                                            {
+                                                $i=0;
+                                                while($result= $showuser->fetch_assoc())
+                                                {
+                                                    $i++;
+                                               
+                                          ?>
                                           <tr class="odd gradeX">
-                                              <td>stt</td>
-                                              <td>ho</td>
-                                              <td>ten</td>
-                                              <td>tendangnhap</td>
-                                              <td>gmail</td>
-                                              <td>trangthai</td>
-                                              <td>loaitaikhoan</td>
+                                              <td><?php echo $i ?></td>
+                                              <td><?php echo $result['hoNguoiQuanTri'] ?></td>
+                                              <td><?php echo $result['tenNguoiQuanTri'] ?></td>
+                                              <td><?php echo $result['tenDangNhap'] ?></td>
+                                              <td><?php echo $result['gmailNguoiQuanTri'] ?></td>
+                                              <td><?php
+                                              if($result['trangThai'] == 1)
+                                              {
+                                                    echo 'Mở';
+                                              }
+                                              else
+                                              {
+                                                  echo 'Khóa';
+                                              } ?></td>
+                                              <td><?php
+                                              if($result['maVaiTro'] == 1 )
+                                              {echo 'Admin';}
+                                              elseif($result['maVaiTro'] == 2)
+                                              {echo 'Quản lý';}
+                                              elseif($result['maVaiTro'] == 3)
+                                              {echo 'Nhân viên';}   ?></td>
                                               
                                               <td>
-                                                  <a href="useredit.php?username" onclick="return popitup('useredit.php?username=')"><button type="button" class="btn btn-info">Sửa</button></a>
+                                                  <a href="useredit.php?tenDangNhap=<?php echo $result['tenDangNhap']?>"><button type="button" class="btn btn-info">Sửa</button></a>
                                                   
-                                                  <a href="?deletename=" ><button type="button" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?');" >Xóa</button></a>
-
-                                                  <a href="?statusname=" ><button type="button" class="btn btn-warning">Mở / Khóa</button></a>
+                                                  <a href="?tenDangNhap=<?php echo $result['tenDangNhap']?>" ><button type="button" class="btn btn-warning">Khóa</button></a>
 
                                               </td>
                                           </tr>
+                                          <?php
+                                           }
+                                        }
+                                          ?>
                                           
                                           
                                       </tbody>

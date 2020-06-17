@@ -48,7 +48,7 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="orders.php"  >
+    <a class="nav-link collapsed" href="cartlist.php"  >
       <i class="fa fa-shopping-cart"></i>
       <span>Quản lý đơn hàng</span>
     </a>

@@ -1,6 +1,18 @@
 <?php
   include 'inc/header.php';
 ?>
+<?php
+  include_once '../classes/user.php';
+?>
+<?php
+  include_once '../classes/vaitro.php';
+?>
+<?php
+    $user = new user();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
+    $insertuser = $user->insertuser($_POST);
+    }
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -16,7 +28,15 @@
             <div class="panel-heading">
                 <span class="textHeading">Thêm quản trị viên</span>
             </div>
-            <div class="panel-body">  
+            <?php
+                    if(isset($insertuser))
+                    {
+                        echo $insertuser;
+                    }
+                ?>
+                <br>
+            <div class="panel-body">
+                  
                 <form  method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
                     <table style="width: 100%;">
 
@@ -43,7 +63,7 @@
                             <label class="labelAddProduct">Gmail: </label>
                         </td>
                         <td>
-                            <input type="email" name="thuDienTuQT" placeholder="Nhập gmail..." class="inputAddProduct" required>
+                            <input type="email" name="gmailNguoiQuanTri" placeholder="Nhập gmail..." class="inputAddProduct" required>
                         </td>
                     </tr>
 
@@ -55,36 +75,28 @@
                             <input type="text" name="tenDangNhap" placeholder="Nhập tên đăng nhập..." class="inputAddProduct" required>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td class="tabLabel">
-                            <label class="labelAddProduct">Mật khẩu: </label>
-                        </td>
-                        <td>
-                            <input type="password" name="matKhau" placeholder="Nhập mật khẩu..." class="inputAddProduct" required>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="tabLabel">
-                            <label class="labelAddProduct">Nhập lại mật khẩu: </label>
-                        </td>
-                        <td>
-                            <input type="password" name="matKhau2" placeholder="Nhập lại mật khẩu..." class="inputAddProduct" required>
-                        </td>
-                    </tr>
-
-                    
+   
                     <tr>
                         <td class="tabLabel">
                             <label class="labelAddProduct">Loại tài khoản: </label>
                         </td>
                         <td>
-                            <select class="inputAddProduct" name="maVaiTro" required>
-                                <option value="0">----Chọn loại tài khoản----</option>
-                                 
-                            </select>
-                        </td>                   
+                          <select class="inputAddProduct" name="maVaiTro" required> 
+                              <?php
+                                $vaiTro = new vaitro();
+                                $vaiTroList = $vaiTro->showvaitro();
+                                if($vaiTroList)
+                                {
+                                    while($result = $vaiTroList->fetch_assoc())
+                                    {
+                              ?>          
+                                    <option name="maVaiTro" value="<?php echo $result['maVaiTro']?>"><?php echo $result['tenVaiTro'] ?></option>
+                                    <?php
+                                    }
+                                }
+                              ?>
+                          </select> 
+                      </td>                   
                     </tr>
 
                      </table>

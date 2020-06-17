@@ -14,6 +14,13 @@
     $pd = new product();
     $fm = new Format();
 ?>
+<?php
+    if(isset($_GET['maSanPham']))
+    {
+        $id = $_GET['maSanPham'];
+        $an= $pd->setTrangThai($id);
+    }        
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -31,10 +38,14 @@
                   </div>
 
                   <div class="panel-body">   
-                      <input type="text" name="tenSanPham" placeholder="Nhập tên sản phẩm..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
-                      <input type="submit" name="timKiem" value="Tìm kiếm" class="btn btn-default" > 
-                      <a href="productadd.php"><button type="button" class="btn btn-success" style="float: right;">Thêm sản phẩm</button></a>
-                      <p></p>
+                      <a href="productadd.php"><button type="button" class="btn btn-success" style="float: right; height: 34px ">Thêm sản phẩm</button></a>
+                      <br>
+                      <?php
+                        if(isset($an))
+                        {
+                            echo $an;
+                        }
+                      ?>
                               <div class="table-responsive" style="margin-top: 2%">
                                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                       <thead>
@@ -60,7 +71,7 @@
                                           ?>
                                           <tr class="odd gradeX">
                                               <td><?php echo $result['maSanPham'] ?></td>
-                                              <td><?php echo $result['maLoaiSanPham'] ?></td>
+                                              <td><?php echo $result['tenLoaiSanPham'] ?></td>
                                               <td><?php echo $result['tenSanPham'] ?></td>
                                               <td><?php echo $result['soLuong'] ?></td>
                                               <td><?php echo $result['donGia'] ?></td>
@@ -76,11 +87,18 @@
                                               }
                                                 ?></td>
 
-                                              <td><?php echo $result['sanPhamNoiBat'] ?></td>
-                                              
+                                              <td><?php 
+                                              if($result['sanPhamNoiBat'] == 1){
+                                                  echo 'Nổi bật';
+                                              }
+                                              else
+                                              {
+                                                  echo 'Không nổi bật';
+                                              }
+                                                  ?></td>
                                               <td>
-                                                  <a href="productedit.php" ><button type="button" class="btn btn-info">Sửa</button></a>
-                                                  <a href="?hideid=" onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này không?')"><button type="button" class="btn btn-warning " >Ẩn</button></a>
+                                                  <a href="productedit.php?maSanPham=<?php echo $result['maSanPham'] ?>" ><button type="button" class="btn btn-info">Sửa</button></a>
+                                                  <a href="?maSanPham=<?php echo $result['maSanPham'] ?>" onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này không?')"><button type="button" class="btn btn-warning " >Ẩn</button></a>
                                               </td>
                                           </tr>
                                           <?php
