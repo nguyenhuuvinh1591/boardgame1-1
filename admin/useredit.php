@@ -54,16 +54,15 @@
                                     <label class="labelAddProduct">Họ: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="hoNguoiQuanTri" <?php echo $result_user['hoNguoiQuanTri']?> class="inputAddProduct" required autofocus>
+                                    <input type="text" name="hoNguoiQuanTri" value="<?php echo $result_user['hoNguoiQuanTri']?>" class="inputAddProduct" required autofocus>
                                 </td>
-                            </tr>
-
+                            </tr>       
                             <tr>
                                 <td class="tabLabel">
                                     <label class="labelAddProduct">Tên: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="tenNguoiQuanTri" <?php echo $result_user['tenNguoiQuanTri']?> class="inputAddProduct" required autofocus>
+                                    <input type="text" name="tenNguoiQuanTri" value="<?php echo $result_user['tenNguoiQuanTri']?>" class="inputAddProduct" required autofocus>
                                 </td>
                             </tr>
 

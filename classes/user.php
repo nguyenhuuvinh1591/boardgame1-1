@@ -80,7 +80,8 @@
                 $query = "UPDATE quantri SET 
                 hoNguoiQuanTri = '$hoNguoiQuanTri',
                 tenNguoiQuanTri = '$tenNguoiQuanTri',
-                gmailNguoiQuanTri = '$gmailNguoiQuanTri'
+                gmailNguoiQuanTri = '$gmailNguoiQuanTri',
+                maVaiTro = '$maVaiTro'
                  WHERE tenDangNhap = '$tenDangNhap'";
                 $result = $this->db->update($query);
                 if($result)
