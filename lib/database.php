@@ -1,5 +1,5 @@
 <?php
-  include '../config/config.php';
+  include 'config/config.php';
 ?>
 <?php
 Class Database{
@@ -27,8 +27,7 @@ private function connectDB(){
  
 // Select or Read data
 public function select($query){ //chọn
-  $result = $this->link->query($query) or 
-   die($this->link->error.__LINE__);
+  $result = $this->link->query($query) or die($this->link->error.__LINE__);
   if($result->num_rows > 0){
     return $result;
   } else {

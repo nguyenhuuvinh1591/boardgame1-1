@@ -110,12 +110,11 @@
                         <div class="row product-categorie-box">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
-                                    <?php for($i=0;$i<3;$i++){ ?>
                                     <div class="row">
                                         <?php 
                                             $product_new = $product->getproduct_new();
                                             if($product_new){
-                                                while($result = $product_new->fetch_assoc()){
+                                                while($result=$product_new->fetch_assoc()){
                                         ?>
                                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                                 <div class="products-single fix">
@@ -123,10 +122,10 @@
                                                         <div class="type-lb">
                                                             <p class="sale">Sale</p>
                                                         </div>
-                                                        <img src="images/img-pro-01.jpg" class="img-fluid" alt="Image">
+                                                        <img src="img/<?php echo $result['hinhAnh'] ?>" class="img-fluid" alt="Image">
                                                         <div class="mask-icon">
                                                             <ul>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                <li><a href="shop-detail.php" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                             </ul>
@@ -134,8 +133,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="why-text">
-                                                        <h4>Lorem ipsum dolor sit amet</h4>
-                                                        <h5> $9.79</h5>
+                                                        <h4><?php echo $result['tenSanPham'] ?></h4>
+                                                        <h5><?php echo $result['donGia'] ?> VNĐ</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,17 +142,18 @@
                                                 }
                                             }
                                         ?>
-                                    <!-------------------------------end - LINE 1 --------------> 
+                                        <!-------------------------------end - LINE 1 --------------> 
         
                              
                                     </div>
-                                        <?php } ?>
                                 </div>
                             </div>
                         </div>
             <!-- End Shop Page -->
-
-
+                    </div>
+                </div>
+            </div>
+        </div>
 <?php
     include "inc/footer.php";
 ?>

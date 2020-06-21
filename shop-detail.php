@@ -1,7 +1,16 @@
 <?php
     include "inc/header.php";
 ?>
-
+<?php 
+    if(!isset($_GET['maSanPham']) || $_GET['maSanPham'] == NULL)
+    {
+        echo "<script>window.location = 'product.php'</script>"; //categorylist.php
+    }
+    else
+    {
+        $id = $_GET['maSanPham'];
+    }
+?>
 
     <!-- Start Shop Detail  -->
     <div class="shop-detail-box-main">

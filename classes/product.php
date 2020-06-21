@@ -1,6 +1,7 @@
 <?php
-    include_once '../lib/database.php';
-    include_once '../helpers/format.php';
+    $filepath = realpath(dirname(__FILE__));
+    include_once ($filepath.'/../lib/database.php');
+    include_once ($filepath.'/../helpers/format.php');
 ?>
 <?php
     class product
@@ -75,14 +76,21 @@
 
         public function getproduct_feathered()
         {
-            $query = "SELECT * FROM sanpham WHERE sanPhamNoiBat = '1'";
+            $query = "SELECT * FROM sanpham WHERE sanPhamNoiBat = '1' LiMIT 4";
+            $result = $this->db->select($query);
+            return $result;
+        }
+
+        public function getproduct_blog()
+        {
+            $query = "SELECT * FROM sanpham WHERE sanPhamNoiBat = '1' LiMIT 3";
             $result = $this->db->select($query);
             return $result;
         }
 
         public function getproduct_new()
         {
-            $query = "SELECT * FROM sanpham order by maSanPham desc LIMIT 3";
+            $query = "SELECT * FROM sanpham ";
             $result = $this->db->select($query);
             return $result;
         }
