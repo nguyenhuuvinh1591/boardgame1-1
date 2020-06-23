@@ -1,5 +1,6 @@
 <?php
     include "inc/header.php";
+    include "inc/slider.php";
 ?>
 
     <!-- Start About Page  -->
@@ -17,7 +18,7 @@
                              Các loại boardgame ngày nay rất đa dạng, từ việc nhập vai hóa thân đến các game có yếu tố thực như cluedo, hoặc game xây dựng thế giới như Dungeons & Dragons…v.v </p>
                 </div>
                 <div class="col-lg-6">
-                    <div class="banner-frame"> <img class="img-thumbnail img-fluid" src="images/about-img.jpg" alt="" />
+                    <div class="banner-frame"> <img style="margin-top: -10%;" class="img-thumbnail img-fluid" src="images/about.jpg" alt="" />
                     </div>
                 </div>
             </div>

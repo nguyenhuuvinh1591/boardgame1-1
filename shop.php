@@ -1,5 +1,6 @@
 <?php
     include "inc/header.php";
+    include "inc/slider.php";
 ?>
     <!-- Start Shop Page  -->
     <div class="shop-box-inner">
@@ -106,7 +107,6 @@
                             </div>
                         </div>
                     <!----------------san pham--------------------------------->   
-                        <!-------------------------------LINE 1 ---------------> 
                         <div class="row product-categorie-box">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
@@ -125,11 +125,10 @@
                                                         <img src="img/<?php echo $result['hinhAnh'] ?>" class="img-fluid" alt="Image">
                                                         <div class="mask-icon">
                                                             <ul>
-                                                                <li><a href="shop-detail.php" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                                <li><a href="shop-detail.php?proid=<?php echo $result['maSanPham']?>" data-toggle="tooltip" data-placement="right" title="Chi tiết"><i class="fas fa-eye"></i></a></li>    
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Thêm vào giỏ hàng"><i class="far fa-heart"></i></a></li>
                                                             </ul>
-                                                            <a class="cart" href="#">Add to Cart</a>
+                                                            <a class="cart" href="shop-detail.php?proid=<?php echo $result['maSanPham']?>">Mua</a>
                                                         </div>
                                                     </div>
                                                     <div class="why-text">

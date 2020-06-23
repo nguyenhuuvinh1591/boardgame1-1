@@ -1,8 +1,10 @@
 <?php
     include_once "inc/header.php";
+    include_once "inc/slider.php";
 ?>
 <!-- Start Products  -->
 <div class="products-box">
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -43,10 +45,9 @@
                             <div class="mask-icon">
                                 <ul>
                                     <li><a href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Thêm vào giỏ hàng"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                <a class="cart" href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>">Mua</a>
                             </div>
                         </div>
                         <div class="why-text">
@@ -65,10 +66,9 @@
                             <div class="mask-icon">
                                 <ul>
                                     <li><a href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Thêm vào giỏ hàng"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                <a class="cart" href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>">Mua</a>
                             </div>
                         </div>
                         <div class="why-text">
@@ -122,8 +122,7 @@
                             </div>
                             <ul class="option-blog">
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
-                                <li><a href="shop-detail.php?proid=<?php echo $result_new['maSanPham']?>" data-toggle="tooltip" data-placement="right" title="Views"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Comments"><i class="far fa-comments"></i></a></li>
+                                <li><a href="shop-detail.php?proid=<?php echo $result_new['maSanPham']?>" data-toggle="tooltip" data-placement="right" title="Chi tiết"><i class="fas fa-eye"></i></a></li>                               
                             </ul>
                         </div>
                     </div>

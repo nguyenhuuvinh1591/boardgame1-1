@@ -68,13 +68,20 @@
         {
             $query = "SELECT sanpham.*,loaisanpham.tenLoaiSanPham 
             FROM sanpham
-            INNER JOIN loaisanpham ON sanpham.maLoaiSanPham = loaisanpham.maLoaiSanPham  
+            INNER JOIN loaisanpham ON sanpham.maLoaiSanPham = loaisanpham.maLoaiSanPham   LIMIT 4
             order by sanpham.maSanPham desc"; //sắp xếp giảm dần
             $result = $this->db->select($query);
             return $result;   
         }
 
         public function getproduct_feathered()
+        {
+            $query = "SELECT * FROM sanpham WHERE sanPhamNoiBat = '1' LiMIT 4";
+            $result = $this->db->select($query);
+            return $result;
+        }
+
+        public function getproduct_category()
         {
             $query = "SELECT * FROM sanpham WHERE sanPhamNoiBat = '1' LiMIT 4";
             $result = $this->db->select($query);
@@ -93,6 +100,14 @@
             $query = "SELECT * FROM sanpham ";
             $result = $this->db->select($query);
             return $result;
+        }
+
+        public function getproduct_details($id){
+            $query = "SELECT sanpham.*,loaisanpham.tenLoaiSanPham 
+            FROM sanpham
+            INNER JOIN loaisanpham ON sanpham.maLoaiSanPham = loaisanpham.maLoaiSanPham where sanPham.maSanPham = '$id' ";
+            $result = $this->db->select($query);
+            return $result;   
         }
 
         public function getProductbyID($id)

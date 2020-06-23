@@ -5,11 +5,9 @@
 <?php 
     include 'lib/database.php';
     include 'helpers/format.php';
-
     spl_autoload_register(function($class){
         include_once "classes/".$class.".php";
     });
-
     $db = new Database();
     $fm = new Format();
     $ct = new cart();
@@ -17,22 +15,15 @@
     $cat = new category();
     $product = new product();
 ?>
-
 <?php 
     header("Cache-Control: no-cache, must-revalidate");
     header("Pragma: no-cache");
     header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     header("Cache-Control: max-age=2592000");
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -99,13 +90,13 @@
 					</select>
                     </div>
                     <div class="right-phone-box">
-                        <p>Call US :- <a href="#"> +84 974086701</a></p>
+                        <p>Điện Thoại :- <a href="#"> +84 974086701</a></p>
                     </div>
                     <div class="our-link">
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Our location</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Đăng Nhập</a></li>
+                            <li><a href="bando.php">Bản đồ</a></li>
+                            <li><a href="contact-us.php">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>
@@ -131,74 +122,18 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
-                        <li class="dropdown megamenu-fw">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</a>
-                            <ul class="dropdown-menu megamenu-content" role="menu">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">BoardGame gia đình</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.php">Cờ Tỷ Phú Monopoly Classic Game (US)</a></li>
-                                                    <li><a href="shop.php">Lớp Học Mật Ngữ - Cuộc đua sao chổi (Mới 2020)</a></li>
-                                                    <li><a href="shop.php">Splendor Việt</a></li>
-                                                    <li><a href="shop.php">Uno Flip (US)</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">BoardGame mới</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.php">Bắn Gà Là Tạch (PUBG the Board Game)</a></li>
-                                                    <li><a href="shop.php">Tam Quốc Sát - Quốc Chiến - Yokagames</a></li>
-                                                    <li><a href="shop.php">Ma Sói One Week Ultimate Werewolf (US)</a></li>
-                                                    <li><a href="shop.php">Ma Sói Ultimate Werewolf - Deluxe Edition (US)</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">BoarGame trẻ em</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.php">Đường Đua Tài Chính</a></li>
-                                                    <li><a href="shop.php">Bài UNO (Mattel) (US)</a></li>
-                                                    <li><a href="shop.php">Cờ Caro Tổ Ong Beehive XO</a></li>
-                                                    <li><a href="shop.php">Lớp Học Mật Ngữ - Siêu Thú Ngân Hà</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Phụ kiện BoardGame</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.php">Sleeves Bài Tỷ Phú - Stone Age - Catan 5.9x9.2cm</a></li>
-                                                    <li><a href="shop.php">Xúc Xắc Xốp 6 Mặt Cỡ To</a></li>
-                                                    <li><a href="shop.php">Túi Rút 7 x 9 cm</a></li>
-                                                    <li><a href="shop.php">Tiểu Thuyết Bí Ẩn Làng Ma Sói - Lâu Đài Bá Tước Jean</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                    </div>
-                                    <!-- end row -->
-                                </li>
-                            </ul>
-                        </li>
+                        <li class="nav-item active"><a class="nav-link" href="index.php">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">Giới Thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.php">Sản Phẩm</a></li>                      
                         <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Thông Tin</a>
                             <ul class="dropdown-menu">
                                 <li><a href="cart.php">Giỏ hàng</a></li>
                                 <li><a href="checkout.php">Thanh toán</a></li>
                                 <li><a href="my-account.php">Thông tin tài khoản</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact-us.php">Liên Hệ</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -261,51 +196,7 @@
         </div>
     </div>
     <!-- End Top Search -->
-
-    <!-- Start Slider -->
-    <div id="slides-shop" class="cover-slides">
-        <ul class="slides-container">
-            <li class="text-left">
-                <img src="images/backgroudSlideBar-02.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                        <p><a class="btn hvr-hover" href="shop.php">Shopping Now</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="text-center">
-                <img src="images/backgroudSlideBar-01.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Welcome To <br> BoardGameStation</strong></h1>
-                            <p class="m-b-40">Hãy cùng hồi ức lại một phần tuổi thơ "boardgame" <br> món ăn tinh thần mới đầy hấp dẫn của giới trẻ Việt.</p>
-                            <p><a class="btn hvr-hover" href="shop.php">Shopping Now</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="text-right">
-                <img src="images/banner-03.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> BoardGameStation</strong></h1>
-                        <p class="m-b-40">Hãy cùng hồi ức lại một phần tuổi thơ "boardgame" <br> món ăn tinh thần mới đầy hấp dẫn của giới trẻ Việt.</p>
-                            <p><a class="btn hvr-hover" href="shop.php">Shopping Now</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div class="slides-navigation">
-            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <!-- End Slider -->
+  
 </body>
 </head>
 
