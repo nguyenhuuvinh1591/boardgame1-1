@@ -10,7 +10,7 @@
             <div class="ins-inner-box">
                 <img src="img/<?php echo $result['hinhAnh']?>" alt="" />
                 <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="shop-detail.php?proid=<?php echo $result['maSanPham']?>"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>

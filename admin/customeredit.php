@@ -15,7 +15,7 @@
     }
 ?>
 <?php
-    $cus = new customer();
+    $cus = new customer1();
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){ 
         $updateCus = $cus->updateCustomer($_POST,$id);
         }

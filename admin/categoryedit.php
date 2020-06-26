@@ -2,153 +2,109 @@
   include 'inc/header.php';
 ?>
 <?php
-    include '../classes/category.php';
+    include '../classes/categoryadmin.php';
 ?>
 <?php
-
-    $cat = new category();
-    if(!isset($_GET['maLoaiSanPham']) || $_GET['maLoaiSanPham'] == NULL)
-    {
-        echo "<script>window.location = 'category.php'</script>"; //categorylist.php
+    $cat = new category1();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $tenLoaiSanPham = $_POST['tenLoaiSanPham'];
+    $insertCat = $cat->insertCategory($tenLoaiSanPham);
     }
-    else
+?>
+<?php
+    if(isset($_GET['maLoaiSanPham']))
     {
         $id = $_GET['maLoaiSanPham'];
-    }
+        $deleteCat= $cat->deleteCategory($id);
+    }        
 ?>
-<?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $tenLoaiSanPham = $_POST['tenLoaiSanPham'];
-        $updateCat = $cat->updateCategory($tenLoaiSanPham,$id);
-        }
-?>
-
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Quản lý sản phẩm</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <span class="textHeading">Sửa danh mục sản phẩm</span>
-                    </div>
-                    <div class="panel-body">
-                        <?php
-                            $getCatName = $cat->getCatbyID($id);
-                            if($getCatName)
-                            {
-                                while($result = $getCatName-> fetch_assoc())
-                                {
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <h1 class="page-header">Quản lý sản phẩm</h1>
+                  </div>
+                  <!-- /.col-lg-12 -->
+              </div>
+              <div class="panel panel-default">
+                  <div class="panel-body"> 
+                     <form action="category.php" method="post"> 
+                          <p style="text-transform: uppercase;font-weight: bold;">Danh mục sản phẩm</p>
+                          <input type="text" name="tenLoaiSanPham" placeholder="Nhập tên danh mục..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
+                          <input type="submit" name="submit" value="Thêm" class="btn btn-success" >
+                      </form>
+                      <?php
+                      if(isset($insertCat))
+                      {
+                          echo $insertCat;
+                      }
+                      ?>
+                      <?php
+                      if(isset($deleteCat))
+                      {
+                        echo $deleteCat;
+                      }
+                      ?>  
+                          <!-- List danh mục-->
+                              <div class="table-responsive" style="margin-top: 2%">
+                                  <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                      <thead>
+                                          <tr>
+                                              <th>STT</th>
+                                              <th>Tên danh mục</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                      <?php
+                                            $showcat = $cat->showCategory();
+                                            if(isset($showcat))
+                                            {
+                                                $i = 0;
+                                                while($result = $showcat->fetch_assoc())
+                                                {
+                                                    $i++;
+                                          ?>
+                                          <tr>
+                                              <td><?php echo $i; ?></td>                                                 
+                                              <td><?php echo $result['tenLoaiSanPham']; ?></td>  
+                                              <td>
+                                                 
+                                                  <a href="categoryedit.php?maLoaiSanPham=<?php echo $result['maLoaiSanPham']?>"><button type="button" class="btn btn-info" >Sửa</button></a>
+                                                  <a href="?maLoaiSanPham=<?php echo $result['maLoaiSanPham']?>" onclick="return confirm('Bạn có chắc muốn xóa không?')"><button type="button" class="btn btn-danger" >Xóa</button></a>
+                                              </td>
+                                          </tr>
+                                          <?php
+                                                }
+                                            }
+                                          ?>
+                                          
+                                          
 
-                        ?>
-                        <form action="" method="POST" enctype="multipart/form-data" name="formUser"> <!--enctype để có thể thêm hình ảnh -->
-                            <table style="width: 100%;">
-                            <tr>
-                                <td class="tabLabel">
-                                    <label class="labelAddProduct">Danh mục sản phẩm:  </label>
-                                </td>
-                                <td>
-                                    <input type="text" name="tenLoaiSanPham" value="<?php echo $result['tenLoaiSanPham']?>" class="inputAddProduct" autofocus>
-                                </td>
-                            </tr>
-                             </table>
-                             <input type="submit" name="submit" value="Sửa" class="btn btn-success" style="margin: 10px;">
-                        </form> 
-                        <?php
-                                                        
-                                    if(isset($updateCat))
-                                    {
-                                        echo $updateCat;
-                                    }
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive --> 
+                  </div>
+              </div>
+              <!-- /.row -->
 
-                                }
-                             }
-                        
-                        ?>
- 
-                     </div>  
-                </div>
-                <!-- /.row -->
-                      <!-- /.col-lg-6 -->
-                    
-                                <!-- /.table-responsive -->
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-6 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/metisMenu.min.js"></script>
-
-    <!-- DataTables JavaScript -->
-    <script src="js/dataTables/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables/dataTables.bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/startmin.js"></script>
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                    responsive: true
-            });
-        });
-    </script>
-    
-    <script>
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-            output.onload = function() {
-              URL.revokeObjectURL(output.src) // free memory
-                }
-        };
-    </script>
-    <script type="text/javascript">
-        function validationForm(){
-            var maVaiTro=document.formUser.maVaiTro.value; 
-            var matKhau=document.formUser.matKhau.value;  
-            var matKhau2=document.formUser.matKhau2.value;
-
-            if (matKhau == matKhau2){
-                if (maVaiTro == '0'){
-                    alert("Chưa chọn loại tài khoản!");
-                    return false;
-                }else{
-                    return true;
-                }
-                
-            }else{
-                alert("Mật khẩu không giống nhau! Mời nhập lại!");
-                return false;
-            }
-        }
-
-    </script>
+                  <!-- /.col-lg-6 -->
+                  
+                              <!-- /.table-responsive -->
+                          </div>
+                          <!-- /.panel-body -->
+                      </div>
+                      <!-- /.panel -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+              </div>
+              <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+      </div>
         <!-- /.container-fluid -->
 
       </div>

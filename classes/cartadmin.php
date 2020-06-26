@@ -1,17 +1,17 @@
 <?php
     $filepath = realpath(dirname(__FILE__));
-    include_once ($filepath.'/../lib/database.php');
+    include_once ($filepath.'/../lib/database1.php');
     include_once ($filepath.'/../helpers/format.php');
 ?>
 <?php
-    class cart
+    class cart1
     {
         public $db;
         public $fm;
 
         public function __construct()
         {
-            $this->db = new Database();
+            $this->db = new Database1();
             $this->fm = new Format();
         }
         
@@ -26,70 +26,28 @@
             $ten = $result['tenSanPham'];
             $dongia = $result['donGia'];
             $hinhanh = $result['hinhAnh'];
+            $query1 = "INSERT INTO giohang(maSanPham, sessionId, soLuongSanPham, tenSanPham, donGia, hinhAnh)
+                VALUES('$id','$sID','$quantity','$ten','$dongia','$hinhanh')";
+                $insert_cat = $this->db->insert($query1);
+                if($insert_cat){
+                    ?>
+                    <script>
+                        window.location.href = "cart.php";
+                    </script>
+                    <?php
+                }
+                else{
+                    header('Location:404.php');
 
-            $query_check_cart = "SELECT * FROM giohang WHERE maSanPham = '$id' AND sessionId = '$sID'";   
-            $check_cart = $this->db->select($query_check_cart);         
-            if(!$check_cart){
-                $msg = "Sản phẩm đã tồn tại trong giỏ hàng!";
-                return $msg;
-            }else{
-                $query1 = "INSERT INTO giohang(maSanPham, sessionId, soLuongSanPham, tenSanPham, donGia, hinhAnh)
-                    VALUES('$id','$sID','$quantity','$ten','$dongia','$hinhanh')";
-                    $insert_cat = $this->db->insert($query1);
-                    if($insert_cat){
-                        ?>
-                        <script>
-                            window.location.href = "cart.php";
-                        </script>
-                        <?php
-                    }
-                    else{
-                        header('Location:404.php');
-
-                    }
-            }
-        }
-
-        public function update_quantity_cart($quantity, $card_id){
-            $quantity = mysqli_real_escape_string($this->db->link, $quantity);
-            $card_id = mysqli_real_escape_string($this->db->link, $card_id);
-
-            $query = "UPDATE giohang SET 
-                    soLuongSanPham = '$quantity'
-                    WHERE maGioHang = '$card_id'";
-            $result = $this->db->update($query);
-            if($result){
-                $msg = "<span style='color: Green;font-size: 18px;'>Update Số lượng thành công!</span>";
-                return $msg;
-            }else{
-                $msg = "<span style='color: red;font-size: 18px;>Update Số lượng thất bại!</span>";
-                return $msg;
-            }   
-        }
-
-        public function del_product_cart($card_id){
-            $card_id = mysqli_real_escape_string($this->db->link, $card_id);
-            $query = "DELETE FROM giohang WHERE maGioHang = '$card_id'"; 
-            $result = $this->db->delete($query);
-            if($result){ 
-                ?>
-                        <script>
-                            window.location.href = "cart.php";
-                        </script>
-                        <?php
-            }else{
-                $msg = "<span style='color: red;font-size: 18px;>Xoá sản phẩm thất bại!</span>";
-                return $msg;
-            }  
-
+                }
         }
 
         public function get_product_cart(){
             $sID = session_id();
             $query = "SELECT * FROM giohang WHERE sessionId = '$sID'";
-            $result = $this->db->update($query);
+            $result = $this->db->select($query);
             return $result;
-        }   
+        }
 
         public function showCart()
         {

@@ -13,7 +13,6 @@
                         <ul>
                             <li>
                                 <p><i class="fas fa-map-marker-alt"></i>Địa chỉ: 273 An Dương Vương, Quận 5 <br>TP Hồ Chí Minh</p>
-                                <!--aaaaaaaaaaaaaaaaaaaaaa-->
                             </li>
                             <li>
                                 <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+84 974086701</a></p>

@@ -5,10 +5,10 @@
   include_once '../classes/customer.php';
 ?>
 <?php
-  include_once '../classes/user.php';
+  include_once '../classes/useradmin.php';
 ?>
 <?php
-$user = new user();
+$user = new user1();
     if(isset($_GET['tenDangNhap']))
     {
         $id = $_GET['tenDangNhap'];
@@ -57,7 +57,7 @@ $user = new user();
                                       </thead>
                                       <tbody>
                                           <?php
-                                            $user = new user();
+                                            $user = new user1();
                                             $showuser = $user->showuser();
                                             if(isset($showuser))
                                             {

@@ -83,20 +83,64 @@
                         </div>
                     </div>
                 </div>
+                <?php
+
+                ?>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="custom-select-box">
-                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-						<option>¥ VNĐ</option>
-					</select>
-                    </div>
-                    <div class="right-phone-box">
-                        <p>Điện Thoại :- <a href="#"> +84 974086701</a></p>
-                    </div>
+                    
+                    <?php
+                        
+                        if(isset($_GET['maKhachHang']))
+                        {
+                            Session::destroy();
+                        }
+                    ?>
                     <div class="our-link">
                         <ul>
-                            <li><a href="#">Đăng Nhập</a></li>
-                            <li><a href="bando.php">Bản đồ</a></li>
-                            <li><a href="contact-us.php">Liên hệ</a></li>
+                        <li><a href="bando.php">Bản đồ</a></li>
+
+                        <?php
+                        $logincheck = Session::get('customerlogin');
+                        if($logincheck == false)
+                        {
+                           echo  '<li><a href="dangnhap.php">Đăng Nhập</a></li>';
+                            echo '<li><a href="dangky.php">Đăng Ký</a></li>';
+                        }
+                        else
+                        {
+                            ?>
+                            <div class="custom-select-box">
+                                    <li class="nav-item dropdown no-arrow">
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                    <i class="fa fa-user" style="color: white"></i>
+                                    </a>
+                                    <!-- Dropdown - User Information -->
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Thông tin cá nhân
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <?php
+
+                                    echo '<a class="dropdown-item" href="?maKhachHang='.Session::get('customerid').'">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Thoát
+                                    </a>'
+                                    ?>
+                                    
+                                    </div>
+                                </li>
+                          </div>
+                          <?php
+
+                        }
+                        
+                    ?>
+
+                            
+
                         </ul>
                     </div>
                 </div>
@@ -139,17 +183,27 @@
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
+                <?php 
+                    $product_cart = $ct->get_product_cart();
+                    if($product_cart){   
+                        $count = 0;
+                        while($result = $product_cart->fetch_assoc()){ 
+                            $count++; 
+                        }
+                    } 
+                ?>
                 <div class="attr-nav">
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="side-menu">
                             <a href="#">
                                 <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
+                                <span class="badge"><?php echo $count ?></span>
                             </a>
                         </li>
                     </ul>
                 </div>
+
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
@@ -157,24 +211,24 @@
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
                     <ul class="cart-list">
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li>
+                        <?php 
+                            $product_cart = $ct->get_product_cart();
+                             if($product_cart){
+                                 $subTotal = 0;     
+                             while($result = $product_cart->fetch_assoc()){ 
+                                 @$subTotal+=$total;                             
+                                ?>
+                            <li>
+                                <a href="#" class="photo"><img src="img/<?php echo $result['hinhAnh'] ?>" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#"><?php echo $result['tenSanPham'] ?> </a></h6>
+                                <p><?php echo $result['soLuongSanPham'] ?> - <span class="price"><?php echo $result['donGia'] ?></span></p>
+                            </li>
+                        <?php 
+                                }
+                            }
+                        ?>
                         <li class="total">
-                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                            <a href="cart.php" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
                         </li>
                     </ul>
                 </li>

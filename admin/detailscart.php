@@ -2,213 +2,109 @@
   include 'inc/header.php';
 ?>
 <?php
-    include_once '../classes/cart.php';
+    include '../classes/categoryadmin.php';
 ?>
 <?php
-    include_once '../classes/detailscart.php';
+    $cat = new category1();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $tenLoaiSanPham = $_POST['tenLoaiSanPham'];
+    $insertCat = $cat->insertCategory($tenLoaiSanPham);
+    }
 ?>
 <?php
-    $cart = new cart();
-    if(!isset($_GET['maDonHang']) || $_GET['maDonHang'] == NULL)
+    if(isset($_GET['maLoaiSanPham']))
     {
-        echo "<script>window.location = 'cartlist.php'</script>"; 
-    }
-    else
-    {
-        $id = $_GET['maDonHang'];
-    }
+        $id = $_GET['maLoaiSanPham'];
+        $deleteCat= $cat->deleteCategory($id);
+    }        
 ?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header" >Đơn hàng</h1>
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    CHI TIẾT ĐƠN HÀNG
-                                </div>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <h1 class="page-header">Quản lý sản phẩm</h1>
+                  </div>
+                  <!-- /.col-lg-12 -->
+              </div>
+              <div class="panel panel-default">
+                  <div class="panel-body"> 
+                     <form action="category.php" method="post"> 
+                          <p style="text-transform: uppercase;font-weight: bold;">Danh mục sản phẩm</p>
+                          <input type="text" name="tenLoaiSanPham" placeholder="Nhập tên danh mục..." style="width: 50%;height: 34px;padding: 6px 12px;font-size: 14px;" >
+                          <input type="submit" name="submit" value="Thêm" class="btn btn-success" >
+                      </form>
+                      <?php
+                      if(isset($insertCat))
+                      {
+                          echo $insertCat;
+                      }
+                      ?>
+                      <?php
+                      if(isset($deleteCat))
+                      {
+                        echo $deleteCat;
+                      }
+                      ?>  
+                          <!-- List danh mục-->
+                              <div class="table-responsive" style="margin-top: 2%">
+                                  <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                      <thead>
+                                          <tr>
+                                              <th>STT</th>
+                                              <th>Tên danh mục</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                      <?php
+                                            $showcat = $cat->showCategory();
+                                            if(isset($showcat))
+                                            {
+                                                $i = 0;
+                                                while($result = $showcat->fetch_assoc())
+                                                {
+                                                    $i++;
+                                          ?>
+                                          <tr>
+                                              <td><?php echo $i; ?></td>                                                 
+                                              <td><?php echo $result['tenLoaiSanPham']; ?></td>  
+                                              <td>
+                                                 
+                                                  <a href="categoryedit.php?maLoaiSanPham=<?php echo $result['maLoaiSanPham']?>"><button type="button" class="btn btn-info" >Sửa</button></a>
+                                                  <a href="?maLoaiSanPham=<?php echo $result['maLoaiSanPham']?>" onclick="return confirm('Bạn có chắc muốn xóa không?')"><button type="button" class="btn btn-danger" >Xóa</button></a>
+                                              </td>
+                                          </tr>
+                                          <?php
+                                                }
+                                            }
+                                          ?>
+                                          
+                                          
 
-                                
-                                <!-- /.panel-heading -->
-                                <div class="panel panel-default">
-                        <div class="panel-body">
-                            <?php
-                            $getCartByID = $cart->getCartbyID($id);
-                            if(isset($getCartByID))
-                            {
-                                while($result_detailscart = $getCartByID->fetch_assoc())
-                                {
-                            ?>
-                            <form action="" method="POST" enctype="multipart/form-data" name="formUser" onsubmit="return validationForm()"> <!--enctype để có thể thêm hình ảnh -->
-                                <table style="width: 100%;">
-                                <tr>
-                                    <td class="tabLabel">
-                                        <label class="labelAddProduct">Mã đơn hàng:  </label>
-                                    </td>
-                                    <td>
-                                       <h5 style="font-size: 16px;"><?php echo $result_detailscart['maDonHang'] ?></h5>
-                                    </td>
-                                </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive --> 
+                  </div>
+              </div>
+              <!-- /.row -->
 
-                                <tr>
-                                    <td class="tabLabel">
-                                        <label class="labelAddProduct">Mã khách hàng: </label>
-                                    </td>
-                                    <td>
-                                        <h5 style="font-size: 16px;"><?php echo $result_detailscart['maKhachHang'] ?></h5>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="tabLabel">
-                                        <label class="labelAddProduct">Tên người nhận:</label>
-                                    </td>
-                                    <td>
-                                        <h5 style="font-size: 16px;"><?php echo $resultDH['tenNguoiNhan'] ?></h5>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="tabLabel">
-                                        <label class="labelAddProduct">Số điện thoại: </label>
-                                    </td>
-                                    <td>
-                                       <h5 style="font-size: 16px;"><?php echo $resultDH['sdtKH'] ?></h5>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="tabLabel">
-                                        <label class="labelAddProduct">Địa chỉ giao: </label>
-                                    </td>
-                                    <td>
-                                        <h5 style="font-size: 16px;"><?php echo $resultDH['diaChiXa'] ?>, <?php echo $resultDH['diaChiHuyen'] ?>, <?php echo $resultDH['diaChiTinh'] ?></h5>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                            <thead>
-                                                <tr>    
-                                                    <th>STT</th>
-                                                    <th>Ảnh</th>
-                                                    <th>Mã sản phẩm</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Size</th>
-                                                    
-                                                    <th>Số lượng SP</th>
-                                                    <th>Đơn giá</th>
-                                                    <th>Thành tiền</th>
-                                                     <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php 
-                                                $infoDH2 = $donhang->show_chitietdonhang2($id);
-
-
-                                                        $i = 0;
-                                                        while ($resultSPDH = $infoDH2->fetch_assoc()){
-                                                               $i++;
-
-                                                            
-                                                ?>
-                                                <tr class="odd gradeX">
-                                                    
-                                                    <td><?php echo $i; ?></td>
-                                                    <td><img src="uploads/<?php echo $resultSPDH['hinhAnhSP']; ?>" width="80"></td>
-                                                    <td><?php echo $resultSPDH['maSanPham']; ?></td>
-                                                    <td><?php echo $resultSPDH['tenSanPham']; ?></td>
-                                                    <td><?php echo $resultSPDH['sizeSanPham']; ?></td>
-                                                    
-                                                    <td><?php echo $resultSPDH['sum(`soLuongSP`)']; ?></td>
-                                                    <td><?php echo number_format($resultSPDH['giaSanPham']); ?></td>
-                                                    
-                                                    <?php 
-                                                        $thanhtien = $resultSPDH['sum(`soLuongSP`)'] * $resultSPDH['giaSanPham'];
-                                                    ?>
-                                                    <td><?php echo number_format($thanhtien); ?></td>
-
-                                                    
-                                                    <?php 
-                                                      
-                                                    }
-                                                    ?>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                </div>
-                                </tr>
-
-                                <tr>
-                                    <td class="tabLabel">
-                                        <label class="labelAddProduct">Giá trị đơn hàng: </label>
-                                    </td>
-                                    <td>
-                                        <span style="font-size: 16px;"><?php echo number_format($resultDH['tongTienDH']) ?> VND</span>
-                                    </td>
-                                </tr> 
-                                    <td class="tabLabel">
-                                        <label class="labelAddProduct"> Trạng thái đơn hàng:  </label>
-                                        <span style="font-size: 16px;"><?php echo $resultDH['trangThaiDH'] ?></span>
-                                    </td>
-                                
-                                </tr>
-
-                                 <tr>
-                                    <td class="tabLabel">
-                                        <p><label class="labelAddProduct">Ghi chú: </label></p>
-                                    </td>
-                                    <td>
-                                        <span style="font-size: 16px;"><?php echo $resultDH['ghiChuCuaKhachhang'] ?></span>
-                                    </td>
-                                </tr>
-
-                                
-                                 </table>
-                                 
-                            </form>  
-                            
-                         </div> 
-
-
-
-
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <?php
-                                }
-                            }
-                        ?>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                   
-                        <!-- /.col-lg-6 -->
-                        
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-6 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container-fluid -->
-            </div>
+                  <!-- /.col-lg-6 -->
+                  
+                              <!-- /.table-responsive -->
+                          </div>
+                          <!-- /.panel-body -->
+                      </div>
+                      <!-- /.panel -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+              </div>
+              <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+      </div>
         <!-- /.container-fluid -->
 
       </div>

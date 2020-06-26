@@ -2,16 +2,16 @@
   include 'inc/header.php';
 ?>
 <?php
-    include '../classes/product.php';
+    include '../classes/productadmin.php';
 ?>
 <?php
-    include '../classes/category.php';
+    include '../classes/categoryadmin.php';
 ?>
 <?php
     include_once '../helpers/format.php';
 ?>
 <?php
-    $pd = new product();
+    $pd = new product1();
     $fm = new Format();
 ?>
 <?php

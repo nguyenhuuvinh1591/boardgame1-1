@@ -2,13 +2,13 @@
   include  'inc/header.php';
 ?>
  <?php
-    include '../classes/category.php';
+    include '../classes/categoryadmin.php';
 ?>
 <?php
-    include '../classes/product.php';
+    include '../classes/productadmin.php';
 ?>
 <?php
-    $pd = new product();
+    $pd = new product1();
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){ //kiểm tra người dùng phải dùng phương thức post để submit
     $insertProduct = $pd->insertProduct($_POST,$_FILES);
     }
@@ -56,7 +56,7 @@
                       <td>
                           <select class="inputAddProduct" name="maLoaiSanPham" required> 
                               <?php
-                                $cat = new category();
+                                $cat = new category1();
                                 $catlist = $cat->showCategory();
                                 if($catlist)
                                 {

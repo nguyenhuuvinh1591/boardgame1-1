@@ -1,101 +1,75 @@
 <?php
     $filepath = realpath(dirname(__FILE__));
-    include_once ($filepath.'/../lib/database.php');
+    include_once ($filepath.'/../lib/database1.php');
     include_once ($filepath.'/../helpers/format.php');
 ?>
 <?php
-    class cart
+    class product1
     {
         public $db;
         public $fm;
 
         public function __construct()
         {
-            $this->db = new Database();
+            $this->db = new Database1();
             $this->fm = new Format();
         }
-        
-        public function add_to_cart($quantity,$id){
-            $quantity = $this->fm->validation($quantity);
-            $quantity = mysqli_real_escape_string($this->db->link, $quantity);
-            $id = mysqli_real_escape_string($this->db->link, $id);
-            $sID = session_id();
 
-            $query = "SELECT * FROM sanpham WHERE maSanPham = '$id'";
-            $result =$this->db->select($query)->fetch_assoc();
-            $ten = $result['tenSanPham'];
-            $dongia = $result['donGia'];
-            $hinhanh = $result['hinhAnh'];
+        public function insertProduct($data,$files)
+        {
 
-            $query_check_cart = "SELECT * FROM giohang WHERE maSanPham = '$id' AND sessionId = '$sID'";   
-            $check_cart = $this->db->select($query_check_cart);         
-            if(!$check_cart){
-                $msg = "Sản phẩm đã tồn tại trong giỏ hàng!";
-                return $msg;
-            }else{
-                $query1 = "INSERT INTO giohang(maSanPham, sessionId, soLuongSanPham, tenSanPham, donGia, hinhAnh)
-                    VALUES('$id','$sID','$quantity','$ten','$dongia','$hinhanh')";
-                    $insert_cat = $this->db->insert($query1);
-                    if($insert_cat){
-                        ?>
-                        <script>
-                            window.location.href = "cart.php";
-                        </script>
-                        <?php
-                    }
-                    else{
-                        header('Location:404.php');
+            $tenSanPham = mysqli_real_escape_string($this->db->link, $data['tenSanPham']);
+            $maLoaiSanPham = mysqli_real_escape_string($this->db->link, $data['maLoaiSanPham']);
+            $soLuong = mysqli_real_escape_string($this->db->link, $data['soLuong']);
+            $mieuTa = mysqli_real_escape_string($this->db->link, $data['mieuTa']);
+            $donGia = mysqli_real_escape_string($this->db->link, $data['donGia']);
+            $sanPhamNoiBat = mysqli_real_escape_string($this->db->link, $data['sanPhamNoiBat']);
+            //kiểm tra hình ảnh cho vào folder uploads
+            $permited = array('jpg', 'jpeg', 'png', 'gif');
+            if(isset($_FILES['image'])){
+                $file_name= $_FILES['image']['name'];
+            }
+            if(isset($_FILES['image'])){
+                $file_size= $_FILES['image']['size'];
+            }
+            if(isset($_FILES['image'])){
+                $file_temp= $_FILES['image']['tmp_name'];
+            }
+            $div = explode('.',$file_name);
+            $file_ext = strtolower(end($div));
+            $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
+            $uploaded_image = "../img/".$unique_image;
 
-                    }
+            if(empty($tenSanPham || $maLoaiSanPham || $soLuong  || $mieuTa  || $donGia  ||$sanPhamNoiBat  ||  $file_name )){
+                $alert = "<br><span class='alert alert-danger'>Vui lòng điền đầy đủ thông tin</span>";
+                return $alert;
+            }
+            else
+            {
+                move_uploaded_file($file_temp,$uploaded_image);
+                $query = "INSERT INTO sanpham(maLoaiSanPham,tenSanPham,soLuong,donGia,mieuTa,hinhAnh,trangThai,sanPhamNoiBat) 
+                VALUES('$maLoaiSanPham','$tenSanPham','$soLuong','$donGia','$mieuTa','$unique_image','1','$sanPhamNoiBat')";
+                $result = $this->db->insert($query);
+
+                if($result)
+                {
+                    $alert = "<br><span class='alert alert-success'>Thêm sản phẩm thành công</span>";
+                    return $alert;
+                }
+                else
+                {
+                    $alert = "<br><span class='alert alert-danger'>Thêm sản phẩm không thành công</span>";
+                    return $alert;
+                }
             }
         }
 
-        public function update_quantity_cart($quantity, $card_id){
-            $quantity = mysqli_real_escape_string($this->db->link, $quantity);
-            $card_id = mysqli_real_escape_string($this->db->link, $card_id);
-
-            $query = "UPDATE giohang SET 
-                    soLuongSanPham = '$quantity'
-                    WHERE maGioHang = '$card_id'";
-            $result = $this->db->update($query);
-            if($result){
-                $msg = "<span style='color: Green;font-size: 18px;'>Update Số lượng thành công!</span>";
-                return $msg;
-            }else{
-                $msg = "<span style='color: red;font-size: 18px;>Update Số lượng thất bại!</span>";
-                return $msg;
-            }   
-        }
-
-        public function del_product_cart($card_id){
-            $card_id = mysqli_real_escape_string($this->db->link, $card_id);
-            $query = "DELETE FROM giohang WHERE maGioHang = '$card_id'"; 
-            $result = $this->db->delete($query);
-            if($result){ 
-                ?>
-                        <script>
-                            window.location.href = "cart.php";
-                        </script>
-                        <?php
-            }else{
-                $msg = "<span style='color: red;font-size: 18px;>Xoá sản phẩm thất bại!</span>";
-                return $msg;
-            }  
-
-        }
-
-        public function get_product_cart(){
-            $sID = session_id();
-            $query = "SELECT * FROM giohang WHERE sessionId = '$sID'";
-            $result = $this->db->update($query);
-            return $result;
-        }   
-
-        public function showCart()
+        public function showProduct()
         {
-            $query = "SELECT *
-            FROM donhang
-            order by maDonHang desc"; //sắp xếp giảm dần
+            $query = "SELECT sanpham.*,loaisanpham.tenLoaiSanPham 
+            FROM sanpham
+            INNER JOIN loaisanpham ON sanpham.maLoaiSanPham = loaisanpham.maLoaiSanPham  
+            order by sanpham.maSanPham desc"; //sắp xếp giảm dần
             $result = $this->db->select($query);
             return $result;   
         }
@@ -114,9 +88,9 @@
             return $result;
         }
 
-        public function getCartbyID($id)
+        public function getProductbyID($id)
         {
-            $query = "SELECT * FROM donhang WHERE maDonHang = '$id'";
+            $query = "SELECT * FROM sanpham WHERE maSanPham = '$id'";
             $result = $this->db->select($query);
             return $result;
         }
@@ -211,16 +185,16 @@
         {
             $id = mysqli_real_escape_string($this->db->link, $id);
 
-            $query = "UPDATE donhang SET trangThai = '1' WHERE maDonHang = '$id'";
+            $query = "UPDATE sanpham SET trangThai = '0' WHERE maSanPham = '$id'";
                 $result = $this->db->update($query);
                 if($result)
             {
-                $alert = "<br><span class='alert alert-success'>Thanh toán đơn hàng thành công</span>";
+                $alert = "<br><span class='alert alert-success'>Ẩn sản phẩm thành công</span>";
                 return $alert;
             }
             else
             {
-                $alert = "<br><span class='alert alert-danger'>Thanh toán đơn hàng thất bại</span>";
+                $alert = "<br><span class='alert alert-danger'>Ẩn sản phẩm thất bại</span>";
                 return $alert;
             }
 
@@ -242,6 +216,5 @@
             }
 
         }
-    }
-?> 
 
+    }

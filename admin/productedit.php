@@ -2,13 +2,13 @@
   include 'inc/header.php';
 ?>
 <?php
-    include '../classes/category.php';
+    include '../classes/categoryadmin.php';
 ?>
 <?php
-include_once '../classes/product.php';
+include_once '../classes/productadmin.php';
 ?>
 <?php
-    $pd = new product();
+    $pd = new product1();
     if(!isset($_GET['maSanPham']) || $_GET['maSanPham'] == NULL)
     {
         echo "<script>window.location = 'product.php'</script>"; //categorylist.php
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
                       <td>
                           <select class="inputAddProduct" name="maLoaiSanPham" required> 
                               <?php
-                                $cat = new category();
+                                $cat = new category1();
                                 $catlist = $cat->showCategory();
                                 if($catlist)
                                 {

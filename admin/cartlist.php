@@ -2,10 +2,10 @@
   include 'inc/header.php';
 ?>
 <?php
-    include_once '../classes/cart.php';
+    include_once '../classes/cartadmin.php';
 ?>
 <?php
-$cart = new cart();
+$cart = new cart1();
     if(isset($_GET['maDonHang']))
     {
         $id = $_GET['maDonHang'];

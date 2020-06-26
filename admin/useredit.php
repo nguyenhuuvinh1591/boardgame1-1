@@ -5,7 +5,7 @@
   include_once '../classes/vaitro.php';
 ?>
 <?php
-  include_once '../classes/user.php';
+  include_once '../classes/useradmin.php';
 ?>
 <?php
     if(!isset($_GET['tenDangNhap']) || $_GET['tenDangNhap'] == NULL)
@@ -18,7 +18,7 @@
     }
 ?>
 <?php
-    $user = new user();
+    $user = new user1();
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){ 
         $updateuser = $user->updateuser($_POST,$tenDangNhap);
         }

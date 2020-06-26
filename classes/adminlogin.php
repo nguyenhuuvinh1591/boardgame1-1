@@ -1,9 +1,9 @@
 <?php
     $filepath = realpath(dirname(__FILE__));
-    include ($filepath.'/../lib/session.php');
+    include_once ($filepath.'/../lib/session.php');
     Session::checkLogin();
-    include ($filepath.'/../lib/database.php');
-    include ($filepath.'/../helpers/format.php');
+    include_once ($filepath.'/../lib/database1.php');
+    include_once ($filepath.'/../helpers/format.php');
 ?>
 <?php
     class adminlogin
@@ -13,7 +13,7 @@
 
         public function __construct()
         {
-            $this->db = new Database();
+            $this->db = new Database1();
             $this->fm = new Format();
         }
 
@@ -53,5 +53,5 @@
             }
         }
     } 
-    
+
 ?>

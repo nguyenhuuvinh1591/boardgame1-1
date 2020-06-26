@@ -1,10 +1,9 @@
 <?php
-  include_once 'config/config.php';
-  // include_once '../config/config.php';
+  include_once '../config/config.php';
 
 ?>
 <?php
-    Class Database{
+    Class Database1{
       public $host   = DB_HOST;
       public $user   = DB_USER;
       public $pass   = DB_PASS;

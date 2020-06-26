@@ -10,7 +10,7 @@
     {
         $id = $_GET['proid'];
     }
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mua'])){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['mua']) || isset($_POST['themvaogiohang']))){
         $quantity = $_POST['quantity'];
         $Addtocat = $ct->add_to_cart($quantity, $id);
     }
@@ -53,6 +53,11 @@
                                                     <div class="cart-and-bay-btn" >
                                                         <input style="color: white;" type="submit" class="btn hvr-hover" data-fancybox-close="" value="Mua Ngay" name="mua" >
                                                         <input style="color: white;" type="submit" class="btn hvr-hover" data-fancybox-close="" value="Thêm vào giỏ hàng" name="themvaogiohang">
+                                                        <?php 
+                                                            if(isset($Addtocat)){
+                                                                echo '<span style="color:red;font-size:18px;">Sản phẩm đã tồn tại trong giỏ hàng</span>';
+                                                            }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </form>

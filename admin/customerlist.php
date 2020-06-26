@@ -5,7 +5,7 @@
   include_once '../classes/customer.php';
 ?>
 <?php
-$cus = new customer();
+$cus = new customer1();
     if(isset($_GET['maKhachHang']))
     {
         $id = $_GET['maKhachHang'];
@@ -55,7 +55,7 @@ $cus = new customer();
                                       </thead>
                                       <tbody>
                                           <?php
-                                            $cus = new customer();
+                                            $cus = new customer1();
                                             $showCus = $cus->showCustomer();
                                             
                                             if(isset($showCus))

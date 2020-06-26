@@ -1,17 +1,17 @@
 <?php
     // $filepath = realpath(dirname(__FILE__));
-    include_once 'lib/database.php';
-    include_once 'helpers/format.php';
+    @include_once '../lib/database1.php';
+    include_once '../helpers/format.php';
 ?>
 <?php
-    class user
+    class user1
     {
         public $db;
         public $fm;
 
         public function __construct()
         {
-            $this->db = new Database();
+            $this->db = new Database1();
             $this->fm = new Format();
         }
 

@@ -28,10 +28,6 @@
         <div class="row special-list">
         <?php 
             $product_feathered=$product->getproduct_feathered();
-            // $result=$product_feathered->fetch_assoc();
-            // $row = $result;
-            // $keys = array_keys($row);
-            // echo $row[$keys[0]];
             if($product_feathered){ 
                 while($result=$product_feathered->fetch_assoc()){ 
         ?>
@@ -45,7 +41,7 @@
                             <div class="mask-icon">
                                 <ul>
                                     <li><a href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Thêm vào giỏ hàng"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="cart.php" data-toggle="tooltip" data-placement="right" title="Giỏ hàng"><i class="far fa-heart"></i></a></li>
                                 </ul>
                                 <a class="cart" href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>">Mua</a>
                             </div>
@@ -66,7 +62,7 @@
                             <div class="mask-icon">
                                 <ul>
                                     <li><a href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Thêm vào giỏ hàng"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="cart.php" data-toggle="tooltip" data-placement="right" title="Giỏ hàng"><i class="far fa-heart"></i></a></li>
                                 </ul>
                                 <a class="cart" href="shop-detail.php?proid=<?php echo $result['maSanPham'] ?>">Mua</a>
                             </div>
